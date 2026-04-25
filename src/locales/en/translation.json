@@ -1,0 +1,345 @@
+{
+  "header": {
+    "login": "Sign In",
+    "register": "Join Essence",
+    "logout": "Disconnect",
+    "profile": "Account Essence",
+    "member": "Platinum Member",
+    "account": "Essence Account"
+  },
+  "nav": {
+    "amlou": "Amlou",
+    "miel": "Natural Honey",
+    "argan": "Natural Oils",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "legal_tag": "Agram Souss Documents"
+  },
+  "hero": {
+    "tag": "✦  100% Bio Products - Souss · Morocco  ✦",
+    "title_1": "Authentic",
+    "title_2": "Agram",
+    "title_3": "Souss",
+    "description": "Discover authentic Moroccan organic products crafted with care — amlou, honey, and argan oil straight from the heart of nature.",
+    "shop_now": "Shop Now",
+    "our_story": "Our Story"
+  },
+  "category": {
+    "tag": "Nature's Best",
+    "title_prefix": "Our",
+    "title_highlight": "Categories",
+    "honey": "Honey",
+    "amlou_others": "Amlou & Others",
+    "argan_oil": "Argan Oil",
+    "promotions": "Promotions"
+  },
+  "products": {
+    "tag": "Pure & Natural",
+    "title_prefix": "Selected",
+    "title_highlight": "Products",
+    "see_more": "See more products",
+    "add_to_cart": "Add to Cart",
+    "sale": "Sale",
+    "organic": "Organic"
+  },
+  "product_detail": {
+    "back": "Back to boutique",
+    "pure_quality": "Pure quality",
+    "fast_delivery": "Fast Delivery",
+    "add_to_cart": "Add to Cart",
+    "satisfaction": "Satisfaction Guaranteed",
+    "related_tag": "Boutique Essentials",
+    "related_title": "You might also like",
+    "view_all": "View all collection",
+    "not_found": "Product not found",
+    "fetch_error": "Couldn't fetch the treasure...",
+    "back_to_shop": "Back to Shop",
+    "organic_treasure": "Organic treasure"
+  },
+  "features": {
+    "fast_delivery": "Fast Delivery",
+    "fast_delivery_desc": "Reliable shipping across all regions in Morocco",
+    "premium_quality": "Premium Quality",
+    "premium_quality_desc": "100% natural and organic bio products",
+    "secure_payment": "Secure Payment",
+    "secure_payment_desc": "Encrypted and safe payment gateways",
+    "support": "24/7 Support",
+    "support_desc": "Our team is always here to help you"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "faq": "Frequently Asked Questions",
+    "contact_form": "Contact Form",
+    "credit": "Developed with ❤️ by",
+    "rights": "All rights reserved",
+    "login": "Login",
+    "register": "Create Account",
+    "logout": "Logout",
+    "profile": "My Profile & Orders"
+  },
+  "auth": {
+    "login_title": "Welcome Back",
+    "login_subtitle": "Continue your essence journey",
+    "reg_title": "Start Your Journey",
+    "reg_subtitle": "Join the Agram Souss essence collection",
+    "email": "Email Address",
+    "password": "Password",
+    "full_name": "Full Name",
+    "phone": "Phone Number",
+    "login_btn": "Login to Boutique",
+    "register_btn": "Create My Account",
+    "forgot": "Forgot?",
+    "no_account": "Don't have an account yet?",
+    "create_account": "Create Essence Account",
+    "have_account": "Already part of the essence collection?",
+    "login_link": "Login here"
+  },
+  "profile": {
+    "greeting": "Marhaba",
+    "subtitle": "Your Essence Collection Account",
+    "info_title": "Personal Essence",
+    "not_set": "Not set",
+    "edit": "Edit Information",
+    "history_title": "Order History",
+    "no_orders": "You haven't added any treasures to your collection yet."
+  },
+  "about": {
+    "badge": "On the Path of Happiness",
+    "title": "Welcome to Agram Souss",
+    "intro": "At Agram Souss, we believe that true well-being begins with nature. Since our beginning, we have been committed to offering authentic, natural products.",
+    "story_tag": "Our Story",
+    "story_title": "A Journey Inspired by Nature",
+    "story_p1": "Our adventure started with a simple vision: reconnect people with pure and healthy foods, inspired by tradition and crafted with care.",
+    "story_p2": "Every product we offer — from rich natural honey to nourishing argan oil and traditional amlou — reflects our dedication to quality and purity.",
+    "story_quote": "Preserving traditional methods while ensuring the highest quality standards.",
+    "natural_badge": "100% natural",
+    "why_tag": "Why Choose Us",
+    "why_title": "Why Choose Agram Souss?",
+    "why_1": "Authentic and genuine natural products",
+    "why_2": "Deep respect for tradition and craftsmanship",
+    "why_3": "A strong commitment to quality and transparency",
+    "why_4": "Supporting a healthy and natural lifestyle",
+    "mission_tag": "Our Mission",
+    "mission_title": "What Drives Us Every Day",
+    "mission_quote": "Our mission at Agram Souss is to bring the best of nature to your table while preserving traditional craftsmanship and supporting sustainable health.",
+    "pure_products": "Pure Products",
+    "healthy_living": "Healthy Living",
+    "tradition": "Tradition",
+    "trust": "Trust"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "We are happy to hear from you! Whether you have a question about our products, services, pricing, or anything else, our team is ready to answer all your inquiries.",
+    "info_title": "Contact Information",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "whatsapp_text": "Contact us via WhatsApp for any inquiries or support.",
+    "hours_title": "Business Hours",
+    "hours_text": "Open daily from:",
+    "hours_note": "Hours might differ on holidays.",
+    "follow": "Follow Us"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your essence collection is empty.",
+    "start_shopping": "Start Shopping",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "total": "Total",
+    "checkout": "Proceed to Checkout"
+  },
+  "shop": {
+    "title_prefix": "Our",
+    "title_highlight": "Boutique",
+    "description": "Explore our collection of pure Moroccan treasures, harvested with respect for nature.",
+    "search": "Search products...",
+    "categories": "Categories",
+    "price_range": "Price Range",
+    "clear_filters": "Clear all filters",
+    "showing": "Showing {{count}} results",
+    "sort_by": "Sort by:",
+    "newest": "Newest",
+    "price_low": "Price: Low to High",
+    "price_high": "Price: High to Low",
+    "name_az": "Name: A-Z",
+    "all_products": "All Products",
+    "no_results": "No products found matching your selection.",
+    "miel": "Natural Honey",
+    "amlou": "Amlou",
+    "argan": "Argan Oil",
+    "promotions": "Promotions"
+  },
+  "checkout": {
+    "back": "Back to Boutique",
+    "title": "Checkout",
+    "subtitle": "Delivery Essence & Information",
+    "full_name": "Full Name",
+    "name_placeholder": "E.g. Yassine El Mansouri",
+    "phone": "Phone Number",
+    "city": "City",
+    "full_address": "Full Address",
+    "address_placeholder": "Street name, Building No, Apartment...",
+    "shipping_title": "Fixed Shipping Rate",
+    "shipping_desc": "35 MAD flat-rate for all Moroccan cities. Delivery within 24-48h.",
+    "confirm": "Confirm Order & Pay on Delivery",
+    "summary": "Order Summary",
+    "qty": "Qty",
+    "available": "Available for Delivery",
+    "thank_you": "Thank You!",
+    "order_confirmed": "Your essence collection has been reserved. Our team will contact you shortly to confirm the delivery in",
+    "return": "Return to Boutique"
+  },
+  "preloader": {
+    "essence": "Nature's Essence",
+    "selection": "Agram Souss Selection",
+    "loading": "Loading..."
+  },
+  "reviews": {
+    "title": "Customer Reviews",
+    "write_review": "Write a Review",
+    "name_label": "Full Name",
+    "name_placeholder": "Your full name",
+    "rating_label": "Rating",
+    "comment_label": "Your Comment",
+    "comment_placeholder": "Share your experience with this product...",
+    "submit": "Submit Review",
+    "no_reviews": "No reviews yet. Be the first to share your experience!",
+    "pending_approval": "Thank you! Your review has been submitted and is awaiting approval.",
+    "average_rating": "Average Rating",
+    "based_on": "Based on {{count}} reviews"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "At Agram Souss, we take your privacy seriously. This policy explains how we collect and protect your data.",
+      "sections": [
+        {
+          "title": "Data Collection",
+          "content": "We collect information you provide when placing an order, such as your name, email, phone number, and delivery address. This is required to facilitate your delivery."
+        },
+        {
+          "title": "Law 09-08 Compliance",
+          "content": "In accordance with Moroccan Law 09-08, you have the right to access, rectify, and oppose the processing of your personal data."
+        },
+        {
+          "title": "Cookies",
+          "content": "We use essential cookies to ensure the boutique functions correctly (e.g., maintaining your shopping cart)."
+        },
+        {
+           "title": "Security",
+           "content": "We implement technical and organizational measures to protect your data against unauthorized access."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "intro": "The Agram Souss boutique is managed by Agram Souss, based in Biougra (Kingdom of Morocco). Please read these terms carefully before accessing our site.",
+      "sections": [
+        {
+          "title": "1. Overview",
+          "content": "Agram Souss offers this website, including all information, tools, and services available, conditioned upon your acceptance of all terms and notices stated here. By visiting our site or purchasing from us, you agree to be bound by these terms."
+        },
+        {
+          "title": "2. Online Store Terms",
+          "content": "By agreeing to these terms, you represent that you are at least the age of majority in your place of residence. You may not use our products for any illegal or unauthorized purpose."
+        },
+        {
+          "title": "3. General Conditions",
+          "content": "We reserve the right to refuse service to anyone at any time for any reason. Your data may be transferred unencrypted, except for credit card information which is always encrypted."
+        },
+        {
+          "title": "4. Accuracy of Information",
+          "content": "We strive to provide accurate information. However, the store is not responsible for slight variations (dimensions, color, weight) resulting from the handmade or natural nature of our products."
+        },
+        {
+          "title": "5. Modifications to Prices",
+          "content": "Prices for our products are subject to change without notice. We reserve the right at any time to modify or discontinue the service without notice."
+        },
+        {
+          "title": "6. Products and Services",
+          "content": "Certain products may be available exclusively online. Quantities may be limited and are subject to our cancellation and no-return policy."
+        },
+        {
+          "title": "7. Cancellation & No-Return Policy",
+          "content": "You can cancel your order before 15:00 (Mon-Fri) and 13:00 (Sat). Due to the perishable nature of our food products (honey, amlou, oils), and for hygiene and safety reasons, we do not accept any returns or refunds once the order has been dispatched or received."
+        },
+        {
+          "title": "8. Shipping and Delivery",
+          "content": "We rely on third-party shipping companies. Agram Souss will do its best to ensure your shipment arrives in good condition and on time, but we do not guarantee delays outside our control."
+        },
+        {
+          "title": "9. Accuracy of Billing",
+          "content": "We reserve the right to refuse any order. You agree to provide current, complete, and accurate purchase and account information for all purchases made at our store."
+        },
+        {
+          "title": "10. Third-Party Links",
+          "content": "Certain links on this site may direct you to third-party websites that are not affiliated with us. We are not responsible for examining or evaluating their content."
+        },
+        {
+          "title": "11. Personal Information",
+          "content": "Your submission of personal information through the store is governed by our Privacy Policy, available on its dedicated page."
+        },
+        {
+          "title": "12. Prohibited Uses",
+          "content": "You are prohibited from using the site for any unlawful purpose, to infringe upon our intellectual property rights, or to upload viruses or malicious code."
+        },
+        {
+          "title": "13. Limitation of Liability",
+          "content": "We do not guarantee that your use of our service will be uninterrupted or error-free. You agree that your use of the service is at your sole risk."
+        },
+        {
+          "title": "14. Governing Law",
+          "content": "These terms of service are governed by the laws of the Kingdom of Morocco."
+        },
+        {
+          "title": "15. Contact Information",
+          "content": "For any questions regarding these terms, please contact us via email at contact@agrambio.com or by phone at 0661817876."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "intro": "Find answers to the most common questions about Agram Souss. If you can't find what you're looking for, feel free to contact us.",
+      "sections": [
+        {
+          "question": "Do you offer Cash on Delivery?",
+          "answer": "Yes, Cash on Delivery is available for all orders within Morocco. You can pay in cash upon receiving your essence collection."
+        },
+        {
+          "question": "Do I need an account to place an order?",
+          "answer": "No, you can place an order as a guest. Simply provide your delivery information at the checkout page."
+        },
+        {
+          "question": "Do you deliver to all cities in Morocco?",
+          "answer": "Yes, we deliver to all cities and regions across the Kingdom of Morocco via reliable delivery partners."
+        },
+        {
+          "question": "What is the delivery timeframe?",
+          "answer": "Delivery usually takes between 24 to 72 hours depending on your location:\n• Major Cities (Rabat, Casablanca, Agadir): 24-48h.\n• Other Regions: 48-72h."
+        },
+        {
+          "question": "Do you deliver to Europe?",
+          "answer": "Yes, we offer international shipping to several European countries. The minimum billable weight for international shipping is 10 kg."
+        },
+        {
+          "question": "How is international shipping priced?",
+          "answer": "Pricing is based on total weight. For example, if a 10 kg shipment costs 200 Dirhams, the rate per kilogram is 20 Dirhams."
+        },
+        {
+          "question": "What is 'Fatourati' service?",
+          "answer": "Fatourati is a secure payment service by CMI. It allows you to pay via your banking app, ATM, or in cash at local agencies (Wafacash, Cash Plus)."
+        },
+        {
+          "question": "Do I need to send the receipt after a Fatourati payment?",
+          "answer": "No, it is not necessary. Our system is directly linked to CMI, and we receive an instant notification once the payment is completed."
+        }
+      ]
+    }
+  }
+}

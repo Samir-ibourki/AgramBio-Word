@@ -1,0 +1,345 @@
+{
+  "header": {
+    "login": "Connexion",
+    "register": "Rejoindre l'Essence",
+    "logout": "Déconnexion",
+    "profile": "Compte Essence",
+    "member": "Membre Platinum",
+    "account": "Compte Essence"
+  },
+  "nav": {
+    "amlou": "Amlou",
+    "miel": "Miel Naturel",
+    "argan": "Huiles Naturelles",
+    "about": "À Propos",
+    "contact": "Contactez-Nous",
+    "legal_tag": "Documents Agram Souss"
+  },
+  "hero": {
+    "tag": "✦  Produits 100% Bio - Souss · Maroc  ✦",
+    "title_1": "Coopérative",
+    "title_2": "Agram",
+    "title_3": "Souss",
+    "description": "Découvrez des produits bio marocains authentiques préparés avec soin — amlou, miel et huile d'argan directement du cœur de la nature.",
+    "shop_now": "Acheter",
+    "our_story": "Notre Histoire"
+  },
+  "category": {
+    "tag": "Le meilleur de la nature",
+    "title_prefix": "Nos",
+    "title_highlight": "Catégories",
+    "honey": "Miel",
+    "amlou_others": "Amlou & Autres",
+    "argan_oil": "Huile d'Argan",
+    "promotions": "Promotions"
+  },
+  "products": {
+    "tag": "Pur & Naturel",
+    "title_prefix": "Produits",
+    "title_highlight": "Sélectionnés",
+    "see_more": "Voir plus de produits",
+    "add_to_cart": "Ajouter au panier",
+    "sale": "Promo",
+    "organic": "Bio"
+  },
+  "product_detail": {
+    "back": "Retour à la boutique",
+    "pure_quality": "Qualité pure",
+    "fast_delivery": "Livraison rapide",
+    "add_to_cart": "Ajouter au panier",
+    "satisfaction": "Satisfaction garantie",
+    "related_tag": "Essentiels de la boutique",
+    "related_title": "Vous pourriez aussi aimer",
+    "view_all": "Voir toute la collection",
+    "not_found": "Produit introuvable",
+    "fetch_error": "Impossible de trouver le trésor...",
+    "back_to_shop": "Retour à la boutique",
+    "organic_treasure": "Trésor bio"
+  },
+  "features": {
+    "fast_delivery": "Livraison rapide",
+    "fast_delivery_desc": "Expédition fiable dans toutes les régions du Maroc",
+    "premium_quality": "Qualité premium",
+    "premium_quality_desc": "Produits 100% naturels et bio",
+    "secure_payment": "Paiement sécurisé",
+    "secure_payment_desc": "Passerelles de paiement cryptées et sûres",
+    "support": "Support 24/7",
+    "support_desc": "Notre équipe est toujours là pour vous aider"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "legal": "Légal",
+    "contact": "Contact",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "faq": "Questions Fréquentes",
+    "contact_form": "Formulaire de contact",
+    "credit": "Développé avec ❤️ par",
+    "rights": "Tous droits réservés",
+    "login": "Connexion",
+    "register": "Créer un compte",
+    "logout": "Déconnexion",
+    "profile": "Mon Profil & Commandes"
+  },
+  "auth": {
+    "login_title": "Bon Retour",
+    "login_subtitle": "Continuez votre voyage sensoriel",
+    "reg_title": "Commencer l'Aventure",
+    "reg_subtitle": "Rejoignez la collection Agram Souss",
+    "email": "Adresse Email",
+    "password": "Mot de passe",
+    "full_name": "Nom Complet",
+    "phone": "Numéro de Téléphone",
+    "login_btn": "Se connecter à la boutique",
+    "register_btn": "Créer mon compte",
+    "forgot": "Oublié ?",
+    "no_account": "Pas encore de compte ?",
+    "create_account": "Créer un compte Essence",
+    "have_account": "Déjà membre de la collection ?",
+    "login_link": "Se connecter ici"
+  },
+  "profile": {
+    "greeting": "Bienvenue",
+    "subtitle": "Votre Compte Essence Collection",
+    "info_title": "Essence Personnelle",
+    "not_set": "Non défini",
+    "edit": "Modifier les informations",
+    "history_title": "Historique des Commandes",
+    "no_orders": "Vous n'avez pas encore ajouté de trésors à votre collection."
+  },
+  "about": {
+    "badge": "Sur le Chemin du Bonheur",
+    "title": "Bienvenue chez Agram Souss",
+    "intro": "Chez Agram Souss, nous croyons que le vrai bien-être commence avec la nature. Depuis nos débuts, nous nous engageons à offrir des produits authentiques et naturels.",
+    "story_tag": "Notre Histoire",
+    "story_title": "Un Voyage Inspiré par la Nature",
+    "story_p1": "Notre aventure a commencé avec une vision simple : reconnecter les gens avec des aliments purs et sains, inspirés par la tradition et confectionnés avec soin.",
+    "story_p2": "Chaque produit que nous proposons — du miel naturel riche à l'huile d'argan nourrissante et à l'amlou traditionnel — reflète notre dévouement à la qualité et à la pureté.",
+    "story_quote": "Préserver les méthodes traditionnelles tout en garantissant les plus hauts standards de qualité.",
+    "natural_badge": "100% naturel",
+    "why_tag": "Pourquoi Nous",
+    "why_title": "Pourquoi Choisir Agram Souss ?",
+    "why_1": "Des produits naturels authentiques et véritables",
+    "why_2": "Un profond respect pour la tradition et l'artisanat",
+    "why_3": "Un engagement fort envers la qualité et la transparence",
+    "why_4": "Soutenir un mode de vie sain et naturel",
+    "mission_tag": "Notre Mission",
+    "mission_title": "Ce Qui Nous Anime Chaque Jour",
+    "mission_quote": "Notre mission chez Agram Souss est d'apporter le meilleur de la nature à votre table tout en préservant l'artisanat traditionnel et en soutenant une santé durable.",
+    "pure_products": "Produits Purs",
+    "healthy_living": "Vie Saine",
+    "tradition": "Tradition",
+    "trust": "Confiance"
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "description": "Nous sommes ravis de vous entendre ! Que vous ayez une question sur nos produits, services, prix ou autre, notre équipe est prête à répondre à toutes vos demandes.",
+    "info_title": "Informations de Contact",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "whatsapp_text": "Contactez-nous via WhatsApp pour toute question ou assistance.",
+    "hours_title": "Heures d'Ouverture",
+    "hours_text": "Ouvert tous les jours de :",
+    "hours_note": "Les horaires peuvent varier les jours fériés.",
+    "follow": "Suivez-Nous"
+  },
+  "cart": {
+    "title": "Votre Panier",
+    "empty": "Votre collection est vide.",
+    "start_shopping": "Commencer vos achats",
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "total": "Total",
+    "checkout": "Passer la Commande"
+  },
+  "shop": {
+    "title_prefix": "Notre",
+    "title_highlight": "Boutique",
+    "description": "Explorez notre collection de trésors marocains purs, récoltés avec respect pour la nature.",
+    "search": "Rechercher des produits...",
+    "categories": "Catégories",
+    "price_range": "Gamme de Prix",
+    "clear_filters": "Effacer tous les filtres",
+    "showing": "Affichage de {{count}} résultats",
+    "sort_by": "Trier par :",
+    "newest": "Plus récent",
+    "price_low": "Prix : Croissant",
+    "price_high": "Prix : Décroissant",
+    "name_az": "Nom : A-Z",
+    "all_products": "Tous les produits",
+    "no_results": "Aucun produit trouvé correspondant à votre sélection.",
+    "miel": "Miel Naturel",
+    "amlou": "Amlou",
+    "argan": "Huile d'Argan",
+    "promotions": "Promotions"
+  },
+  "checkout": {
+    "back": "Retour à la Boutique",
+    "title": "Paiement",
+    "subtitle": "Informations de Livraison",
+    "full_name": "Nom Complet",
+    "name_placeholder": "Ex. Yassine El Mansouri",
+    "phone": "Numéro de Téléphone",
+    "city": "Ville",
+    "full_address": "Adresse Complète",
+    "address_placeholder": "Nom de rue, N° de bâtiment, Appartement...",
+    "shipping_title": "Frais de Livraison Fixes",
+    "shipping_desc": "35 MAD pour toutes les villes du Maroc. Livraison sous 24-48h.",
+    "confirm": "Confirmer la Commande & Payer à la Livraison",
+    "summary": "Résumé de la Commande",
+    "qty": "Qté",
+    "available": "Disponible pour la Livraison",
+    "thank_you": "Merci !",
+    "order_confirmed": "Votre collection a été réservée. Notre équipe vous contactera bientôt pour confirmer la livraison à",
+    "return": "Retour à la Boutique"
+  },
+  "preloader": {
+    "essence": "L'essence de la nature",
+    "selection": "Sélection Agram Souss",
+    "loading": "Chargement..."
+  },
+  "reviews": {
+    "title": "Avis Clients",
+    "write_review": "Laisser un avis",
+    "name_label": "Nom complet",
+    "name_placeholder": "Votre nom complet",
+    "rating_label": "Note",
+    "comment_label": "Votre commentaire",
+    "comment_placeholder": "Partagez votre expérience avec ce produit...",
+    "submit": "Envoyer l'avis",
+    "no_reviews": "Aucun avis pour le moment. Soyez le premier à partager votre expérience !",
+    "pending_approval": "Merci ! Votre avis a été envoyé et est en attente d'approbation.",
+    "average_rating": "Note moyenne",
+    "based_on": "Basé sur {{count}} avis"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Politique de Confidentialité",
+      "intro": "Chez Agram Souss, nous prenons votre vie privée au sérieux. Cette politique explique comment nous collectons et protégeons vos données.",
+      "sections": [
+        {
+          "title": "Collecte de Données",
+          "content": "Nous collectons les informations que vous fournissez lors d'une commande, telles que votre nom, email, numéro de téléphone et adresse de livraison. Ceci est nécessaire pour faciliter votre livraison."
+        },
+        {
+          "title": "Conformité Loi 09-08",
+          "content": "Conformément à la loi marocaine 09-08, vous disposez d'un droit d'accès, de rectification et d'opposition au traitement de vos données personnelles."
+        },
+        {
+          "title": "Cookies",
+          "content": "Nous utilisons des cookies essentiels pour assurer le bon fonctionnement de la boutique (ex: maintien du panier d'achat)."
+        },
+        {
+           "title": "Sécurité",
+           "content": "Nous mettons en œuvre des mesures techniques et organisationnelles pour protéger vos données contre tout accès non autorisé."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Conditions Générales de Vente",
+      "intro": "La boutique Agram Souss est gérée par Agram Souss, basée à Biougra (Royaume du Maroc). Veuillez lire attentivement ces conditions avant d'accéder à notre site.",
+      "sections": [
+        {
+          "title": "1. Aperçu",
+          "content": "Agram Souss propose ce site, incluant toutes les informations, outils et services disponibles, sous réserve de votre acceptation de toutes les conditions et avis énoncés ici. En visitant notre site ou en achetant chez nous, vous acceptez d'être lié par ces termes."
+        },
+        {
+          "title": "2. Conditions de la Boutique",
+          "content": "En acceptant ces conditions, vous déclarez avoir au moins l'âge de la majorité dans votre lieu de résidence. Vous ne pouvez pas utiliser nos produits à des fins illégales ou non autorisées."
+        },
+        {
+          "title": "3. Conditions Générales",
+          "content": "Nous nous réservons le droit de refuser le service à tout moment pour n'importe quelle raison. Vos données peuvent être transférées sans cryptage, à l'exception des informations de carte de crédit qui sont toujours cryptées."
+        },
+        {
+          "title": "4. Exactitude des Informations",
+          "content": "Nous nous efforçons de fournir des informations précises. Cependant, la boutique n'est pas responsable des légères variations (dimensions, couleur, poids) résultant de la nature artisanale ou naturelle de nos produits."
+        },
+        {
+          "title": "5. Modifications des Prix",
+          "content": "Les prix de nos produits peuvent être modifiés sans préavis. Nous nous réservons le droit de modifier ou d'interrompre le service à tout moment."
+        },
+        {
+          "title": "6. Produits et Services",
+          "content": "Certains produits peuvent être disponibles exclusivement en ligne. Les quantités peuvent être limitées et sont soumises à notre politique d'annulation et de non-retour."
+        },
+        {
+          "title": "7. Politique d'Annulation et de Non-Retour",
+          "content": "Vous pouvez annuler votre commande avant 15h00 (Lun-Ven) et 13h00 (Sam). En raison de la nature périssable de nos produits (miel, amlou, huiles) et pour des raisons d'hygiène et de sécurité, nous n'acceptons aucun retour ou remboursement une fois la commande expédiée ou reçue."
+        },
+        {
+          "title": "8. Livraison",
+          "content": "Nous utilisons des transporteurs tiers. Agram Souss fera de son mieux pour que votre commande arrive en bon état et à temps, mais nous ne garantissons pas les retards hors de notre contrôle."
+        },
+        {
+          "title": "9. Exactitude de la Facturation",
+          "content": "Nous nous réservons le droit de refuser toute commande. Vous acceptez de fournir des informations d'achat et de compte actuelles, complètes et précises."
+        },
+        {
+          "title": "10. Liens de Tiers",
+          "content": "Certains liens sur ce site peuvent vous diriger vers des sites tiers qui ne sont pas affiliés à nous. Nous ne sommes pas responsables de l'examen ou de l'évaluation de leur contenu."
+        },
+        {
+          "title": "11. Informations Personnelles",
+          "content": "L'utilisation de vos informations personnelles est régie par notre Politique de Confidentialité, disponible sur sa page dédiée."
+        },
+        {
+          "title": "12. Utilisations Interdites",
+          "content": "Il vous est interdit d'utiliser le site à des fins illégales, d'enfreindre nos droits de propriété intellectuelle ou de transmettre des virus ou codes malveillants."
+        },
+        {
+          "title": "13. Limitation de Responsabilité",
+          "content": "Nous ne garantissons pas que l'utilisation de notre service sera ininterrompue ou sans erreur. Vous acceptez que l'utilisation de ce service est à votre seul risque."
+        },
+        {
+          "title": "14. Loi Applicable",
+          "content": "Ces conditions de service sont régies par les lois du Royaume du Maroc."
+        },
+        {
+          "title": "15. Contact",
+          "content": "Pour toute question concernant ces conditions, contactez-nous par email à contact@agrambio.com ou par téléphone au 0661817876."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Foire Aux Questions",
+      "intro": "Retrouvez ici les réponses aux questions les plus fréquentes concernant Agram Souss. Si vous ne trouvez pas votre réponse, n'hésitez pas à nous contacter.",
+      "sections": [
+        {
+          "question": "Proposez-vous le paiement à la livraison ?",
+          "answer": "Oui, le paiement à la livraison est disponible pour toutes les commandes au Maroc. Vous pouvez régler votre commande en espèces dès réception."
+        },
+        {
+          "question": "Ai-je besoin d'un compte pour commander ?",
+          "answer": "Non, vous pouvez commander directement en tant que visiteur. Il vous suffit de renseigner vos coordonnées de livraison lors du checkout."
+        },
+        {
+          "question": "Livre-vous dans toutes les villes du Maroc ?",
+          "answer": "Oui, nous livrons dans toutes les villes et régions du Royaume du Maroc via des partenaires de confiance."
+        },
+        {
+          "question": "Quel est le délai de livraison ?",
+          "answer": "La livraison prend généralement entre 24 à 72 heures :\n• Grandes villes (Rabat, Casa, Agadir) : 24-48h.\n• Autres régions : 48-72h."
+        },
+        {
+          "question": "Livre-vous en Europe ?",
+          "answer": "Oui, nous proposons une livraison internationale vers plusieurs pays européens. Le poids minimum facturable pour l'international est de 10 kg."
+        },
+        {
+          "question": "Comment est calculé le prix d'expédition internationale ?",
+          "answer": "Le prix est basé sur le poids total. Par exemple, si l'expédition de 10 kg coûte 200 Dirhams, le coût au kilogramme est de 20 Dirhams."
+        },
+        {
+          "question": "C'est quoi le service 'Fatourati' ?",
+          "answer": "C'est un service de paiement sécurisé du CMI. Il vous permet de payer via votre application bancaire, GAB, ou en espèces dans les agences de proximité (Wafacash, Cash Plus)."
+        },
+        {
+          "question": "Dois-je envoyer le reçu après un paiement 'Fatourati' ?",
+          "answer": "Non, ce n'est pas nécessaire. Notre système est lié directement au CMI, et nous recevons une notification instantanée dès que le paiement est effectué."
+        }
+      ]
+    }
+  }
+}
