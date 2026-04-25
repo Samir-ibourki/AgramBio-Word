@@ -12,6 +12,7 @@ const Category = lazy(() => import("./components/Category"));
 const Products = lazy(() => import("./components/Products"));
 const Shop = lazy(() => import("./components/Shop"));
 const ProductDetails = lazy(() => import("./components/ProductDetails"));
+const Checkout = lazy(() => import("./components/Checkout"));
 const Contact = lazy(() => import("./components/Contact"));
 const Features = lazy(() => import("./components/Features"));
 const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"));
@@ -46,7 +47,10 @@ function App() {
               </div>
             } />
 
-           
+           <Route path="/checkout" element={
+              <Checkout />
+            } />
+
 
             <Route path="/category/:slug" element={
               <div className="pt-20">
@@ -71,7 +75,7 @@ function App() {
                 <About />
               </div>
             } />
-            
+
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/faq" element={<FAQ />} />
