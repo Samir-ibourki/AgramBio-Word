@@ -5,6 +5,8 @@ import { AnimationProvider,  } from "./context/AnimationContext";
 import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
 import About from "./components/About";
+import Footer from "./components/Footer";
+
 
 const Category = lazy(() => import("./components/Category"));
 const Products = lazy(() => import("./components/Products"));
@@ -12,6 +14,9 @@ const Shop = lazy(() => import("./components/Shop"));
 const ProductDetails = lazy(() => import("./components/ProductDetails"));
 const Contact = lazy(() => import("./components/Contact"));
 const Features = lazy(() => import("./components/Features"));
+const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./components/TermsOfService"));
+const FAQ = lazy(() => import("./components/FAQ"));
 
 
 const queryClient = new QueryClient();
@@ -31,7 +36,7 @@ function App() {
                 <Hero />
                 <Category />
                 <Products />
-              <Features />
+                <Features />
               </>
             } />
             
@@ -66,12 +71,17 @@ function App() {
                 <About />
               </div>
             } />
+            
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/faq" element={<FAQ />} />
+
 
           </Routes>  
 
             
       </main>
-      
+      <Footer />
       </AnimationProvider>
     </QueryClientProvider>
     </>
