@@ -2,8 +2,10 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Search, Filter, X, ChevronDown } from "lucide-react";
-import { staticProducts } from "../data/products";
 import ProductCard from "./ProductCard";
+import { useQuery } from "@apollo/client/react";
+import { getProducts } from "../api/queries";
+import { mapProducts } from "../utils/mapper";
 
 function Shop() {
   const { t, i18n } = useTranslation();
@@ -40,13 +42,18 @@ function Shop() {
     );
   }, []);
 
+  const { data, loading, error } = useQuery(getProducts, { variables: { first: 50 } });
+  const allLiveProducts = useMemo(() => mapProducts(data?.products?.nodes), [data]);
+
   const getName = (name) => {
     if (typeof name === 'object') return name[lang] || name.fr || name.ar || "";
-    return name;
+    return name || "";
   };
 
   const filteredProducts = useMemo(() => {
-    let result = staticProducts.filter(product => {
+    if (!allLiveProducts || allLiveProducts.length === 0) return [];
+    
+    let result = allLiveProducts.filter(product => {
       const productName = getName(product.name).toLowerCase();
       const matchesSearch = productName.includes(debouncedSearch.toLowerCase());
       const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.categorySlug);
@@ -62,7 +69,7 @@ function Shop() {
     }
 
     return result;
-  }, [debouncedSearch, selectedCategories, priceRange, sortBy, lang]);
+  }, [debouncedSearch, selectedCategories, priceRange, sortBy, lang, allLiveProducts]);
 
 
   const sortOptions = [
@@ -173,7 +180,15 @@ function Shop() {
               </div>
             </div>
 
-            {filteredProducts.length === 0 ? (
+            {loading ? (
+              <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
+                 <p className="font-serif italic text-xl text-dark/20">Loading Shop...</p>
+              </div>
+            ) : error ? (
+              <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
+                 <p className="font-serif italic text-xl text-red-500">Error loading products.</p>
+              </div>
+            ) : filteredProducts.length === 0 ? (
               <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
                  <p className="font-serif italic text-xl text-dark/20">{t('shop.no_results')}</p>
               </div>

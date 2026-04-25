@@ -4,7 +4,9 @@ import { useTranslation } from "react-i18next";
 import ProductCard from "./ProductCard";
 import { ChevronLeft, ShoppingBag, ShieldCheck, Truck, RefreshCw, Minus, Plus, Star, MessageSquare, Send, Check } from "lucide-react";
 import { useCartStore } from "../store/useCartStore";
-import { staticProducts } from "../data/products";
+import { useQuery } from "@apollo/client/react";
+import { getProductById, getProducts } from "../api/queries";
+import { mapProduct, mapProducts } from "../utils/mapper";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -20,16 +22,19 @@ function ProductDetails() {
 
 
 
-  const product = useMemo(() => {
-    return staticProducts.find(p => String(p.id) === String(id));
-  }, [id]);
+  const { data: productData, loading: productLoading, error: productError } = useQuery(getProductById, { variables: { id: id }});
+  const product = useMemo(() => mapProduct(productData?.product), [productData]);
 
+  const { data: relatedData } = useQuery(getProducts, { 
+     variables: { first: 5, category: product?.categorySlug },
+     skip: !product?.categorySlug
+  });
+  
   const relatedProducts = useMemo(() => {
-    if (!product) return [];
-    return staticProducts
-      .filter(p => p.categorySlug === product.categorySlug && p.id !== product.id)
-      .slice(0, 4);
-  }, [product]);
+    if (!relatedData?.products?.nodes) return [];
+    const mapped = mapProducts(relatedData.products.nodes);
+    return mapped.filter(p => String(p.id) !== String(id)).slice(0, 4);
+  }, [relatedData, id]);
 
   const { addToCart, setIsCartOpen } = useCartStore();
   const [quantity, setQuantity] = useState(1);
@@ -62,10 +67,12 @@ function ProductDetails() {
   };
 
   useGSAP(() => {
-    if (!product) return;
+    if (productLoading || !product) return;
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    tl.from(".product-image", { x: -60, opacity: 0, duration: 1 });
-    tl.from(".info-item", { y: 30, opacity: 0, stagger: 0.1, duration: 0.7 }, "-=0.5");
+    if (document.querySelector(".product-image")) {
+       tl.from(".product-image", { x: -60, opacity: 0, duration: 1 });
+       tl.from(".info-item", { y: 30, opacity: 0, stagger: 0.1, duration: 0.7 }, "-=0.5");
+    }
 
     gsap.from(".reviews-section", {
       scrollTrigger: { trigger: ".reviews-section", start: "top 90%" },
@@ -76,9 +83,19 @@ function ProductDetails() {
       scrollTrigger: { trigger: ".related-product-card", start: "top 90%" },
       y: 60, opacity: 0, stagger: 0.1, duration: 0.8
     });
-  }, { scope: containerRef, dependencies: [product, relatedProducts] });
+  }, { scope: containerRef, dependencies: [product, relatedProducts, productLoading] });
 
-  if (!product) {
+  if (productLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#FCFAFA]">
+        <div className="text-center">
+          <h2 className="text-3xl font-serif text-dark/40 mb-4 italic">Loading Product...</h2>
+        </div>
+      </div>
+    );
+  }
+
+  if (productError || !product) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#FCFAFA]">
         <div className="text-center">

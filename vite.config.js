@@ -8,4 +8,8 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  envPrefix: ['VITE_', 'vite_'],
+  optimizeDeps: {
+    include: ['@apollo/client', '@apollo/client/react']
+  }
 })

@@ -53,7 +53,7 @@ const Hero = memo(function Hero() {
 
         <h1 ref={titleRef} className="text-[clamp(3.2rem,8vw,7.5rem)] font-light text-cream leading-[1.05] tracking-[-0.01em] [perspective:600px]">
           <span className="word inline-block italic font-light">{t('hero.title_1')}&nbsp;</span>
-          <span className="word inline-block font-bold text-gold drop-shadow-[0_0_80px_rgba(201,168,76,0.35)]">{t('hero.title_2')}</span> 
+          <span className="word inline-block font-bold text-gold drop-shadow-[0_0_80px_rgba(201,168,76,0.35)]">{t('hero.title_2')}&nbsp;</span> 
           <span className="word inline-block font-bold">{t('hero.title_3')}</span>
         </h1>
 

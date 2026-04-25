@@ -1,11 +1,13 @@
 import { useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { staticProducts } from "../data/products";
 import ProductCard from "./ProductCard";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useQuery } from "@apollo/client/react";
+import { getProducts } from "../api/queries";
+import { mapProducts } from "../utils/mapper";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,22 +23,32 @@ function Products() {
     { name: t('shop.argan'), slug: 'huiles-naturelles' },
   ];
 
+  const { data, loading, error } = useQuery(getProducts, { variables: { first: 20 } });
+  const allLiveProducts = useMemo(() => mapProducts(data?.products?.nodes), [data]);
+
   const products = useMemo(() => {
+    if (!allLiveProducts || allLiveProducts.length === 0) return [];
+    
     if (activeTab !== "all") {
-      return staticProducts.filter(p => p.categorySlug === activeTab);
+      return allLiveProducts.filter(p => p.categorySlug === activeTab);
     }
     if (slug) {
-      return staticProducts.filter(p => p.categorySlug === slug);
+      return allLiveProducts.filter(p => p.categorySlug === slug);
     }
     
-    return staticProducts.slice(0, 4);
-  }, [slug, activeTab]);
+    return allLiveProducts.slice(0, 4);
+  }, [slug, activeTab, allLiveProducts]);
 
   useGSAP(() => {
+    if (loading || products.length === 0) return;
+    
     const q = gsap.utils.selector(containerRef);
     gsap.from(q('.title-anim'), { y: 50, opacity: 0, duration: 1, scrollTrigger: { trigger: q('.title-anim'), start: "top 90%" } });
-    gsap.fromTo(q('.card'), { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power2.out", overwrite: "auto", scrollTrigger: { trigger: q('.card'), start: "top 90%" } });
-  }, { scope: containerRef, dependencies: [products] });
+    
+    if (q('.card').length > 0) {
+      gsap.fromTo(q('.card'), { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power2.out", overwrite: "auto", scrollTrigger: { trigger: q('.card'), start: "top 90%" } });
+    }
+  }, { scope: containerRef, dependencies: [products, loading] });
 
   return (
     <section id="products" ref={containerRef} className="py-20 bg-white">
@@ -74,12 +86,22 @@ function Products() {
           <div className="w-12 h-[2px] bg-gold/30 mt-8 mx-auto" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 min-h-[400px]">
-          {products.map((product) => (
-            <div key={product.id} className="card">
-              <ProductCard product={product} />
+        <div className="min-h-[400px]">
+          {loading ? (
+            <div className="py-20 text-center text-dark/40 font-serif italic">Loading Products...</div>
+          ) : error ? (
+            <div className="py-20 text-center text-red-500 font-serif italic">Error loading products.</div>
+          ) : products.length === 0 ? (
+            <div className="py-20 text-center text-dark/40 font-serif italic">No products found in this category.</div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+              {products.map((product) => (
+                <div key={product.id} className="card">
+                  <ProductCard product={product} />
+                </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
 
         <div className="mt-16 flex justify-center">
