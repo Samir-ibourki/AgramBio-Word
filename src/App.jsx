@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimationProvider,  } from "./context/AnimationContext";
+import Category from "./components/Category";
 const queryClient = new QueryClient();
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
      <QueryClientProvider client={queryClient}>
       <AnimationProvider>
         <Header/>
-    <Hero/>
+        <Hero/>
+        <Category/>
       </AnimationProvider>
     </QueryClientProvider>
     </>
