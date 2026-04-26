@@ -193,7 +193,9 @@
     "available": "Disponible pour la Livraison",
     "thank_you": "Merci !",
     "order_confirmed": "Votre collection a été réservée. Notre équipe vous contactera bientôt pour confirmer la livraison à",
-    "return": "Retour à la Boutique"
+    "return": "Retour à la Boutique",
+    "deposit_title": "Important : Acompte Requis",
+    "deposit_desc": "Pour garantir votre commande et éviter les retours, nous exigeons un acompte avant l'expédition. Vous paierez le solde restant à la livraison (Paiement à la Livraison)."
   },
   "preloader": {
     "essence": "L'essence de la nature",
