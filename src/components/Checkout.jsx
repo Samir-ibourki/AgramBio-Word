@@ -1,12 +1,11 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useCartStore } from "../store/useCartStore";
 import { ChevronLeft, CheckCircle, Package, Truck, Phone, MapPin, User, ArrowRight, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client/react";
-import { createOrder } from "../api/mutations";
-
-
+import { createOrder, addToCartMutation } from "../api/mutations";
+import client from "../api/apolloClient";
 
 function Checkout() {
   const { t, i18n } = useTranslation();
@@ -15,7 +14,8 @@ function Checkout() {
   const subtotal = getSubtotal();
   const total = getTotal();
   const [isOrdered, setIsOrdered] = useState(false);
-  
+  const [isProcessing, setIsProcessing] = useState(false);
+
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -28,102 +28,71 @@ function Checkout() {
     return name;
   };
 
-  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [checkoutMutation] = useMutation(createOrder, {
+    onCompleted: (data) => {
+
+      setIsOrdered(true);
+      setIsProcessing(false);
+      clearCart();
+      window.scrollTo(0, 0);
+    },
+    onError: (error) => {
+      
+      setIsProcessing(false);
+      alert("There was an issue processing your order. Please try again.");
+    }
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setCheckoutLoading(true);
-    
-    const nameParts = formData.fullName.trim().split(' ');
-    const firstName = nameParts[0] || '';
-    const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
-    const graphqlUrl = import.meta.env.VITE_WP_GRAPHQL_URL 
+    setIsProcessing(true);
 
     try {
-      let sessionToken = null;
-
-      // 1. Add items to cart to build session
+      
       for (const item of cart) {
-        const headers = { 'Content-Type': 'application/json' };
-        if (sessionToken) {
-          headers['woocommerce-session'] = `Session ${sessionToken}`;
-        }
-
-        const r = await fetch(graphqlUrl, {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({
-            query: `mutation AddToCart($input: AddToCartInput!) { addToCart(input: $input) { cartItem { key } } }`,
-            variables: { input: { productId: parseInt(item.id), quantity: item.quantity } }
-          })
-        });
-
-        if (!sessionToken) {
-          const newToken = r.headers.get('woocommerce-session');
-          if (newToken) {
-            sessionToken = newToken;
-          }
-        }
-      }
-
-      if (!sessionToken) {
-        throw new Error("Failed to initialize cart session with the server.");
-      }
-
-      // 2. Process Checkout
-      const checkoutReq = await fetch(graphqlUrl, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'woocommerce-session': `Session ${sessionToken}`
-        },
-        body: JSON.stringify({
-          query: `mutation Checkout($input: CheckoutInput!) { checkout(input: $input) { result } }`,
+        await client.mutate({
+          mutation: addToCartMutation,
           variables: {
-            input: {
-              clientMutationId: "checkout-" + Date.now(),
-              billing: {
-                firstName,
-                lastName,
-                phone: formData.phone,
-                city: formData.city,
-                address1: formData.address,
-                country: "MA" 
-              },
-              shipping: {
-                firstName,
-                lastName,
-                city: formData.city,
-                address1: formData.address,
-                country: "MA"
-              },
-              paymentMethod: "cod",
-              customerNote: "Deposit required before shipping."
-            }
-          }
-        })
+            productId: parseInt(item.id),
+            quantity: item.quantity,
+          },
+        });
+      }
+
+      // 2. build billing/shipping info
+      const nameParts = formData.fullName.trim().split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
+
+      // 3. fire checkout
+      await checkoutMutation({
+        variables: {
+          input: {
+            clientMutationId: "checkout-" + Date.now(),
+            billing: {
+              firstName,
+              lastName,
+              phone: formData.phone,
+              city: formData.city,
+              address1: formData.address,
+              country: "MA",
+            },
+            shipping: {
+              firstName,
+              lastName,
+              city: formData.city,
+              address1: formData.address,
+              country: "MA",
+            },
+            paymentMethod: "cod",
+            customerNote: "Deposit required before shipping.",
+          },
+        },
       });
-
-      const checkoutData = await checkoutReq.json();
-
-      if (checkoutData.errors && checkoutData.errors.length > 0) {
-        throw new Error(checkoutData.errors[0].message);
-      }
-
-      if (checkoutData.data?.checkout?.result === "success") {
-        console.log("Order Successful:", checkoutData.data.checkout);
-        setIsOrdered(true);
-        clearCart();
-        window.scrollTo(0, 0);
-      } else {
-        throw new Error("Checkout failed. Please try again.");
-      }
-
     } catch (err) {
-      console.error("Checkout Error:", err);
-      alert("There was an issue processing your order: " + err.message);
-    } finally {
-      setCheckoutLoading(false);
+      
+      setIsProcessing(false);
+      alert("There was an issue processing your order. Please try again.");
     }
   };
 
@@ -138,8 +107,8 @@ function Checkout() {
           <p className="text-dark/40 leading-relaxed mb-10">
             {t('checkout.order_confirmed')} <span className="text-dark font-bold underline decoration-gold/30">{formData.city}</span>.
           </p>
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="inline-flex items-center gap-2 bg-dark text-cream px-10 py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-gold hover:text-dark transition-all duration-500"
           >
             {t('checkout.return')} <ArrowRight size={14} className="rtl:rotate-180" />
@@ -170,11 +139,11 @@ function Checkout() {
                   <label className="text-[10px] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
                     <User size={12} className="text-gold" /> {t('checkout.full_name')}
                   </label>
-                  <input 
+                  <input
                     required type="text" placeholder={t('checkout.name_placeholder')}
                     className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-gold/30 transition-all text-sm shadow-sm"
                     value={formData.fullName}
-                    onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   />
                 </div>
 
@@ -182,11 +151,11 @@ function Checkout() {
                   <label className="text-[10px] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
                     <Phone size={12} className="text-gold" /> {t('checkout.phone')}
                   </label>
-                  <input 
+                  <input
                     required type="tel" placeholder="06 XX XX XX XX"
                     className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-gold/30 transition-all text-sm shadow-sm"
                     value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   />
                 </div>
               </div>
@@ -196,11 +165,11 @@ function Checkout() {
                   <label className="text-[10px] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
                     <MapPin size={12} className="text-gold" /> {t('checkout.city')}
                   </label>
-                  <input 
+                  <input
                     required type="text" placeholder={t('checkout.city')}
                     className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-gold/30 transition-all text-sm shadow-sm"
                     value={formData.city}
-                    onChange={(e) => setFormData({...formData, city: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                   />
                 </div>
               </div>
@@ -209,11 +178,11 @@ function Checkout() {
                 <label className="text-[10px] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
                   <Package size={12} className="text-gold" /> {t('checkout.full_address')}
                 </label>
-                <textarea 
+                <textarea
                   required placeholder={t('checkout.address_placeholder')} rows="4"
                   className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-gold/30 transition-all text-sm shadow-sm resize-none"
                   value={formData.address}
-                  onChange={(e) => setFormData({...formData, address: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                 ></textarea>
               </div>
 
@@ -241,12 +210,20 @@ function Checkout() {
                 </div>
               </div>
 
-              <button 
+              <button
                 type="submit"
-                disabled={checkoutLoading}
+                disabled={isProcessing}
                 className="w-full bg-dark text-cream py-6 rounded-2xl font-bold uppercase tracking-[0.3em] text-[15px] hover:bg-gold hover:text-dark transition-all duration-500 shadow-xl shadow-dark/10 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {checkoutLoading ? "Processing..." : t('checkout.confirm')}
+                {isProcessing ? (
+                  <span className="flex items-center justify-center gap-3">
+                    <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                    </svg>
+                    {t('preloader.loading')}
+                  </span>
+                ) : t('checkout.confirm')}
               </button>
             </form>
           </div>
@@ -254,7 +231,7 @@ function Checkout() {
           <div className="lg:col-span-5 sticky top-32">
             <div className="bg-white border border-black/5 rounded-[40px] p-10 shadow-2xl shadow-dark/[0.02]">
               <h2 className="text-xl font-serif text-dark font-bold mb-8">{t('checkout.summary')}</h2>
-              
+
               <div className="space-y-6 mb-10 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                 {cart.map((item) => (
                   <div key={item.id} className="flex gap-4">
@@ -286,7 +263,7 @@ function Checkout() {
                   <span className="text-gold font-bold font-serif">{total} MAD</span>
                 </div>
               </div>
-              
+
               <div className="mt-8 flex items-center justify-center gap-3 py-3 border border-black/5 rounded-xl border-dashed">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-[1rem] uppercase font-bold tracking-widest text-dark/40">{t('checkout.available')}</span>
