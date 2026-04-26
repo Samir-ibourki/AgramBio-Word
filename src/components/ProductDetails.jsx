@@ -24,9 +24,14 @@ function ProductDetails() {
 
   const { data: productData, loading: productLoading, error: productError } = useQuery(getProductById, { variables: { id: id }});
   const product = useMemo(() => mapProduct(productData?.product), [productData]);
+  const [activeImage, setActiveImage] = useState(0);
+
+  useEffect(() => {
+    setActiveImage(0);
+  }, [product?.id]);
 
   const { data: relatedData } = useQuery(getProducts, { 
-     variables: { first: 5, category: product?.categorySlug },
+     variables: { first: 5, categoryIn: product?.categorySlug ? [product.categorySlug] : undefined },
      skip: !product?.categorySlug
   });
   
@@ -117,12 +122,28 @@ function ProductDetails() {
 
       <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         
-        <div className="lg:col-span-5 product-image group relative aspect-square bg-white rounded-[40px] overflow-hidden border border-black/5 shadow-sm max-w-xl mx-auto w-full">
-          <img 
-            src={product.images && product.images[0] ? product.images[0] : "/placeholder.png"} 
-            alt={getName(product.name)}
-            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-          />
+        <div className="lg:col-span-5 flex flex-col gap-4">
+          <div className="product-image group relative aspect-square bg-white rounded-[40px] overflow-hidden border border-black/5 shadow-sm max-w-xl mx-auto w-full">
+            <img 
+              src={product.images && product.images[activeImage] ? product.images[activeImage] : "/placeholder.png"} 
+              alt={getName(product.name)}
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            />
+          </div>
+          
+          {product.images && product.images.length > 1 && (
+            <div className="flex gap-4 overflow-x-auto pb-2 custom-scrollbar justify-center">
+              {product.images.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveImage(idx)}
+                  className={`relative w-20 h-20 rounded-2xl overflow-hidden border-2 transition-all duration-300 ${activeImage === idx ? 'border-gold scale-105' : 'border-black/5 hover:border-gold/50 opacity-70 hover:opacity-100'}`}
+                >
+                  <img src={img} alt="" className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="lg:col-span-7 product-info space-y-10">

@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
 import About from "./components/About";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 const Category = lazy(() => import("./components/Category"));
@@ -28,6 +29,7 @@ function App() {
    
      <QueryClientProvider client={queryClient}>
       <AnimationProvider>
+        <ScrollToTop />
         <Header/>
         <main>
       

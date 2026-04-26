@@ -147,7 +147,7 @@ function Shop() {
           </aside>
 
           <main className="flex-1">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
               <p className="text-xs text-dark/30 font-bold uppercase tracking-widest">
                 {t('shop.showing', { count: filteredProducts.length })}
               </p>
@@ -155,7 +155,7 @@ function Shop() {
               <div className="relative group">
                 <button 
                   onClick={() => setIsSortOpen(!isSortOpen)}
-                  className="flex items-center gap-2 text-xs text-dark/40 font-bold uppercase tracking-widest hover:text-gold transition-colors"
+                  className="flex items-center gap-2 text-xs text-dark/40 font-bold uppercase tracking-widest hover:text-gold transition-colors outline-none"
                 >
                   {t('shop.sort_by')} <span className="text-dark">{t(currentSortLabel)}</span>
                   <ChevronDown size={14} className={`transition-transform duration-300 ${isSortOpen ? 'rotate-180' : ''}`} />

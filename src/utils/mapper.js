@@ -5,7 +5,7 @@ export const mapProduct = (wpProduct) => {
   
   const extractPrice = (priceStr) => {
     if (!priceStr) return null;
-    const match = priceStr.match(/[\d,.]+/);
+    const match = priceStr.match(/\d+([.,]\d+)?/);
     return match ? parseFloat(match[0].replace(',', '.')) : null;
   };
 

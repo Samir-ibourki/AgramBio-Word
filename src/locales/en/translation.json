@@ -193,7 +193,9 @@
     "available": "Available for Delivery",
     "thank_you": "Thank You!",
     "order_confirmed": "Your essence collection has been reserved. Our team will contact you shortly to confirm the delivery in",
-    "return": "Return to Boutique"
+    "return": "Return to Boutique",
+    "deposit_title": "Important: Deposit Required",
+    "deposit_desc": "To guarantee your order and avoid returns, we require a deposit before shipping. You will pay the remaining balance upon delivery (Cash on Delivery)."
   },
   "preloader": {
     "essence": "Nature's Essence",
