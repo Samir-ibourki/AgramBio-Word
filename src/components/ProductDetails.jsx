@@ -76,12 +76,12 @@ function ProductDetails() {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     if (document.querySelector(".product-image")) {
        tl.from(".product-image", { x: -60, opacity: 0, duration: 1 });
-       tl.from(".info-item", { y: 30, opacity: 0, stagger: 0.1, duration: 0.7 }, "-=0.5");
+       tl.from(".info-item", { y: 30, stagger: 0.1, duration: 0.7 }, "-=0.5");
     }
 
     gsap.from(".reviews-section", {
       scrollTrigger: { trigger: ".reviews-section", start: "top 90%" },
-      y: 50, opacity: 0, duration: 0.8
+      y: 50, duration: 0.8
     });
 
     gsap.from(".related-product-card", {
@@ -162,12 +162,14 @@ function ProductDetails() {
             </div>
           </div>
 
-          <p className="info-item text-dark/60 leading-relaxed max-w-lg">
-            {typeof product.description === 'object' 
-              ? (product.description[lang] || product.description.fr || '')
-              : (product.description || '')
-            }
-          </p>
+          <div 
+            className="info-item text-dark/60 leading-relaxed max-w-lg"
+            dangerouslySetInnerHTML={{ 
+              __html: (typeof product.description === 'object' && product.description !== null)
+                ? (product.description[lang] || product.description.fr || '')
+                : (product.description || '') 
+            }}
+          />
 
           <div className="info-item grid grid-cols-1 sm:grid-cols-2 gap-6 py-10 border-y border-black/5">
             <div className="flex items-center gap-4">
