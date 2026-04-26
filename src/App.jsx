@@ -21,12 +21,20 @@ const TermsOfService = lazy(() => import("./components/TermsOfService"));
 const FAQ = lazy(() => import("./components/FAQ"));
 
 
+import { Helmet } from "react-helmet-async";
+
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <>
-   
+     <Helmet>
+        <title>AgramBio | Produits Bio et Naturels Premium</title>
+        <meta name="description" content="Découvrez la richesse de la nature chez AgramBio. Miels purs, Amlou traditionnel, et huiles cosmétiques certifiées." />
+        <meta name="keywords" content="bio, miel naturel, amlou maroc, huiles essentielles, agrambio" />
+        <meta property="og:title" content="AgramBio | Produits Bio & Terroir Marocain" />
+        <meta property="og:description" content="Le meilleur de la nature livré chez vous. Miels et huiles 100% purs." />
+     </Helmet>
      <QueryClientProvider client={queryClient}>
       <AnimationProvider>
         <ScrollToTop />

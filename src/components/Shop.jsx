@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Search, Filter, X, ChevronDown } from "lucide-react";
 import ProductCard from "./ProductCard";
+import { Helmet } from "react-helmet-async";
 import { useQuery } from "@apollo/client/react";
 import { getProducts } from "../api/queries";
 import { mapProducts } from "../utils/mapper";
@@ -83,6 +84,10 @@ function Shop() {
 
   return (
     <div className="min-h-screen bg-[#FCFAFA] pb-24 pt-10">
+      <Helmet>
+        <title>Boutique Premium | AgramBio</title>
+        <meta name="description" content="Explorez notre catalogue complet de produits naturels marocains. Miel, huiles végétales et Amlou d'exception." />
+      </Helmet>
       <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">

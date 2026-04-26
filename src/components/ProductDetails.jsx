@@ -9,6 +9,7 @@ import { getProductById, getProducts } from "../api/queries";
 import { mapProduct, mapProducts } from "../utils/mapper";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Helmet } from "react-helmet-async";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -120,6 +121,13 @@ function ProductDetails() {
         </Link>
       </div>
 
+      <Helmet>
+        <title>{getName(product.name)} | AgramBio</title>
+        <meta name="description" content={typeof product.description === 'string' ? product.description.replace(/<[^>]*>/g, '').slice(0, 160) : "AgramBio Produit Bio Premium"} />
+        <meta property="og:title" content={`${getName(product.name)} | AgramBio`} />
+        <meta property="og:image" content={product.images && product.images[0] ? product.images[0] : ""} />
+      </Helmet>
+
       <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         
         <div className="lg:col-span-5 flex flex-col gap-4">
@@ -198,16 +206,16 @@ function ProductDetails() {
 
           <div className="info-item flex items-center gap-3 text-dark/30">
             <RefreshCw size={14} />
-            <span className="text-[10px] uppercase font-bold tracking-[0.2em]">{t('product_detail.satisfaction')}</span>
+            <span className="text-[1rem] uppercase font-bold tracking-[0.2em]">{t('product_detail.satisfaction')}</span>
           </div>
         </div>
       </div>
 
       {/* Reviews Section */}
-      <div className="reviews-section mt-15 max-w-7xl lg:max-w-[95vw] mx-auto px-6 border-t border-black/5 pt-10">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+      <div className="reviews-section mt-10 max-w-7xl lg:max-w-[95vw] mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 bg-white border border-black/5 rounded-[40px] p-8 md:p-12 shadow-sm overflow-hidden">
           
-          <div className="w-full md:w-1/3">
+          <div className="w-full md:w-1/3 flex flex-col">
             <h2 className="text-4xl font-serif text-dark mb-6">{t('reviews.title')}</h2>
             
             <div className="flex items-center gap-4 mb-8">
@@ -218,7 +226,7 @@ function ProductDetails() {
                     <Star key={i} size={16} fill={i < Math.floor(averageRating) ? "currentColor" : "none"} className={i < Math.floor(averageRating) ? "text-gold" : "text-black/10"} />
                   ))}
                 </div>
-                <p className="text-[10px] uppercase font-bold tracking-widest text-dark/30">
+                <p className="text-[1rem] uppercase font-bold tracking-widest text-dark/30">
                   {t('reviews.based_on', { count: approvedReviews.length })}
                 </p>
               </div>
@@ -226,7 +234,7 @@ function ProductDetails() {
 
             <button 
               onClick={() => setShowReviewForm(!showReviewForm)}
-              className="w-full py-4 border border-black/10 rounded-2xl text-[10px] uppercase font-bold tracking-[0.2em] text-dark hover:bg-dark hover:text-white transition-all duration-500 flex items-center justify-center gap-3"
+              className="w-full py-4 bg-dark text-cream hover:bg-gold hover:text-dark rounded-2xl text-[1rem] uppercase font-bold tracking-[0.2em] transition-all duration-500 flex items-center justify-center gap-3 shadow-md shadow-dark/5"
             >
               <MessageSquare size={14} />
               {t('reviews.write_review')}
@@ -245,7 +253,7 @@ function ProductDetails() {
                 ) : (
                   <>
                     <div className="space-y-4">
-                      <label className="text-[10px] uppercase font-bold tracking-widest text-dark/40 ml-1">{t('reviews.rating_label')}</label>
+                      <label className="text-[1rem] uppercase font-bold tracking-widest text-dark/40 ml-1">{t('reviews.rating_label')}</label>
                       <div className="flex gap-2">
                         {[1, 2, 3, 4, 5].map((star) => (
                           <button 
@@ -261,7 +269,7 @@ function ProductDetails() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase font-bold tracking-widest text-dark/40 ml-1">{t('reviews.name_label')}</label>
+                      <label className="text-[1rem] uppercase font-bold tracking-widest text-dark/40 ml-1">{t('reviews.name_label')}</label>
                       <input 
                         required
                         type="text" 
@@ -273,7 +281,7 @@ function ProductDetails() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase font-bold tracking-widest text-dark/40 ml-1">{t('reviews.comment_label')}</label>
+                      <label className="text-[1rem] uppercase font-bold tracking-widest text-dark/40 ml-1">{t('reviews.comment_label')}</label>
                       <textarea 
                         required
                         placeholder={t('reviews.comment_placeholder')}
@@ -287,7 +295,7 @@ function ProductDetails() {
                     <button 
                       type="submit"
                      
-                      className="w-full bg-dark text-cream py-4 rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-gold hover:text-dark transition-all duration-300 shadow-lg disabled:opacity-50"
+                      className="w-full bg-dark text-cream py-4 rounded-xl font-bold uppercase tracking-widest text-[1rem] hover:bg-gold hover:text-dark transition-all duration-300 shadow-lg disabled:opacity-50"
                     >
                       {submitReviewMutation.isPending ? t('preloader.loading') : t('reviews.submit')}
                     </button>
@@ -299,8 +307,8 @@ function ProductDetails() {
 
           <div className="w-full md:w-2/3 space-y-8">
             {approvedReviews.length === 0 ? (
-              <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
-                <p className="font-serif italic text-dark/20">{t('reviews.no_reviews')}</p>
+              <div className="h-full flex items-center justify-center py-20 text-center border border-dashed border-black/5 rounded-[32px]">
+                <p className="font-serif italic text-dark/30">{t('reviews.no_reviews')}</p>
               </div>
             ) : (
               approvedReviews.map((review) => (
@@ -314,11 +322,11 @@ function ProductDetails() {
                         ))}
                       </div>
                     </div>
-                    <span className="text-[10px] font-bold text-dark/20 uppercase tracking-widest">
+                    <span className="text-[1rem] font-bold text-dark/20 uppercase tracking-widest">
                       {new Date(review.createdAt).toLocaleDateString(lang === 'ar' ? 'ar-MA' : lang === 'fr' ? 'fr-FR' : 'en-US')}
                     </span>
                   </div>
-                  <p className="text-dark/60 text-sm leading-relaxed italic pr-4">{review.comment}</p>
+                  <p className="text-dark/60 text-[1rem] leading-relaxed italic pr-4">{review.comment}</p>
                 </div>
               ))
             )}
