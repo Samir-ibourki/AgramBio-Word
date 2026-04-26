@@ -16,14 +16,12 @@ export const getCategories = gql`
 `;
 
 export const getProducts = gql`
-  query GetProducts($first: Int, $category: String) {
-    products(first: $first, where: { category: $category }) {
+  query GetProducts($first: Int, $categoryIn: [String]) {
+    products(first: $first, where: { categoryIn: $categoryIn }) {
       nodes {
         databaseId
         slug
         name
-        description
-        shortDescription
         ... on SimpleProduct {
           price
           regularPrice
@@ -34,6 +32,38 @@ export const getProducts = gql`
           regularPrice
           salePrice
         }
+        ... on Product {
+          description
+          shortDescription
+          image {
+            sourceUrl
+          }
+          galleryImages {
+            nodes {
+              sourceUrl
+            }
+          }
+          productCategories {
+            nodes {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const getProductById = gql`
+  query GetProductById($id: ID!) {
+    product(id: $id, idType: DATABASE_ID) {
+      ... on Product {
+        databaseId
+        slug
+        name
+        description
+        shortDescription
         image {
           sourceUrl
         }
@@ -49,18 +79,6 @@ export const getProducts = gql`
           }
         }
       }
-    }
-  }
-`;
-
-export const getProductById = gql`
-  query GetProductById($id: ID!) {
-    product(id: $id, idType: DATABASE_ID) {
-      databaseId
-      slug
-      name
-      description
-      shortDescription
       ... on SimpleProduct {
         price
         regularPrice
@@ -70,20 +88,6 @@ export const getProductById = gql`
         price
         regularPrice
         salePrice
-      }
-      image {
-        sourceUrl
-      }
-      galleryImages {
-        nodes {
-          sourceUrl
-        }
-      }
-      productCategories {
-        nodes {
-          name
-          slug
-        }
       }
     }
   }

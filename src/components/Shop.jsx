@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Search, Filter, X, ChevronDown } from "lucide-react";
 import ProductCard from "./ProductCard";
+import { Helmet } from "react-helmet-async";
 import { useQuery } from "@apollo/client/react";
 import { getProducts } from "../api/queries";
 import { mapProducts } from "../utils/mapper";
@@ -83,6 +84,10 @@ function Shop() {
 
   return (
     <div className="min-h-screen bg-[#FCFAFA] pb-24 pt-10">
+      <Helmet>
+        <title>Boutique Premium | AgramBio</title>
+        <meta name="description" content="Explorez notre catalogue complet de produits naturels marocains. Miel, huiles végétales et Amlou d'exception." />
+      </Helmet>
       <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -147,7 +152,7 @@ function Shop() {
           </aside>
 
           <main className="flex-1">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
               <p className="text-xs text-dark/30 font-bold uppercase tracking-widest">
                 {t('shop.showing', { count: filteredProducts.length })}
               </p>
@@ -155,7 +160,7 @@ function Shop() {
               <div className="relative group">
                 <button 
                   onClick={() => setIsSortOpen(!isSortOpen)}
-                  className="flex items-center gap-2 text-xs text-dark/40 font-bold uppercase tracking-widest hover:text-gold transition-colors"
+                  className="flex items-center gap-2 text-xs text-dark/40 font-bold uppercase tracking-widest hover:text-gold transition-colors outline-none"
                 >
                   {t('shop.sort_by')} <span className="text-dark">{t(currentSortLabel)}</span>
                   <ChevronDown size={14} className={`transition-transform duration-300 ${isSortOpen ? 'rotate-180' : ''}`} />
