@@ -167,30 +167,25 @@ function ProductDetails() {
   useGSAP(
     () => {
       if (productLoading || !product) return;
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      if (document.querySelector(".product-image")) {
-        tl.from(".product-image", { x: -60, opacity: 0, duration: 1 });
-        tl.from(".info-item", { y: 30, stagger: 0.1, duration: 0.7 }, "-=0.5");
+
+      const img = containerRef.current?.querySelector(".product-image");
+      const items = containerRef.current?.querySelectorAll(".info-item");
+
+      if (img) {
+        gsap.fromTo(img,
+          { x: -40, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+        );
       }
 
-      gsap.from(".reviews-section", {
-        scrollTrigger: { trigger: ".reviews-section", start: "top 90%" },
-        y: 50,
-        duration: 0.8,
-      });
-
-      gsap.from(".related-product-card", {
-        scrollTrigger: { trigger: ".related-product-card", start: "top 90%" },
-        y: 60,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.8,
-      });
+      if (items?.length) {
+        gsap.fromTo(items,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.08, duration: 0.5, ease: "power2.out", delay: 0.3 }
+        );
+      }
     },
-    {
-      scope: containerRef,
-      dependencies: [product, relatedProducts, productLoading],
-    },
+    { scope: containerRef, dependencies: [product?.id, productLoading] }
   );
 
   if (productLoading) {

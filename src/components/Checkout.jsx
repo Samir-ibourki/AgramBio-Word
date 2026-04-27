@@ -26,6 +26,7 @@ function Checkout() {
   const total = getTotal();
   const [isOrdered, setIsOrdered] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -49,7 +50,7 @@ function Checkout() {
     },
     onError: () => {
       setIsProcessing(false);
-      alert("There was an issue processing your order. Please try again.");
+      setShowErrorModal(true);
     },
   });
 
@@ -101,7 +102,7 @@ function Checkout() {
       // eslint-disable-next-line no-unused-vars
     } catch (err) {
       setIsProcessing(false);
-      alert("There was an issue processing your order. Please try again.");
+      setShowErrorModal(true);
     }
   };
 
@@ -364,6 +365,27 @@ function Checkout() {
           </div>
         </div>
       </div>
+      {showErrorModal && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-[#FCFAFA] border border-black/5 rounded-3xl p-8 max-w-md w-full text-center shadow-[0_30px_60px_rgba(0,0,0,0.2)]">
+            <div className="w-20 h-20 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <AlertCircle size={40} strokeWidth={2} />
+            </div>
+            <h3 className="font-serif text-2xl text-dark mb-3">
+              {t("checkout.error_title")}
+            </h3>
+            <p className="text-dark/60 mb-8 leading-relaxed text-[1rem]">
+              {t("checkout.error_message")}
+            </p>
+            <button
+              onClick={() => setShowErrorModal(false)}
+              className="bg-dark cursor-pointer text-cream font-bold py-3.5 px-8 rounded-xl hover:bg-gold hover:text-dark transition-all duration-300 tracking-widest uppercase text-sm"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

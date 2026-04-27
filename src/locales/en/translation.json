@@ -195,7 +195,9 @@
     "order_confirmed": "Your order has been successfully received. Our team is currently processing it. We will contact you shortly to confirm the delivery details to",
     "return": "Return to Boutique",
     "deposit_title": "Important: Deposit Required",
-    "deposit_desc": "To guarantee your order and avoid returns, we require a deposit before shipping. You will pay the remaining balance upon delivery (Cash on Delivery)."
+    "deposit_desc": "To guarantee your order and avoid returns, we require a deposit before shipping. You will pay the remaining balance upon delivery (Cash on Delivery).",
+    "error_title": "Order Error",
+    "error_message": "There was an issue processing your order. Please try again."
   },
   "preloader": {
     "essence": "Nature's Essence",
@@ -343,5 +345,11 @@
         }
       ]
     }
+  },
+  "not_found": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "home": "Home",
+    "shop": "Shop"
   }
 }
