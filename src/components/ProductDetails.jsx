@@ -113,7 +113,7 @@ function ProductDetails() {
   }
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-[#FCFAFA] py-10">
+    <div ref={containerRef} className="min-h-screen bg-[#FCFAFA] py-5">
       
       <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6 mb-10">
         <Link to="/shop" className="inline-flex items-center gap-2 text-dark/40 hover:text-gold transition-colors group">
@@ -128,9 +128,9 @@ function ProductDetails() {
         <meta property="og:image" content={product.images && product.images[0] ? product.images[0] : ""} />
       </Helmet>
 
-      <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         
-        <div className="lg:col-span-5 flex flex-col gap-4">
+        <div className="lg:col-span-5 flex flex-col gap-8">
           <div className="product-image group relative aspect-square bg-white rounded-[40px] overflow-hidden border border-black/5 shadow-sm max-w-xl mx-auto w-full">
             <img 
               src={product.images && product.images[activeImage] ? product.images[activeImage] : "/placeholder.png"} 
@@ -140,7 +140,7 @@ function ProductDetails() {
           </div>
           
           {product.images && product.images.length > 1 && (
-            <div className="flex gap-4 overflow-x-auto pb-2 custom-scrollbar justify-center">
+            <div className="flex gap-4 justify-center">
               {product.images.map((img, idx) => (
                 <button
                   key={idx}
@@ -156,16 +156,16 @@ function ProductDetails() {
 
         <div className="lg:col-span-7 product-info space-y-10">
           <div>
-            <span className="info-item inline-block px-4 py-1.5 bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-[0.2em] rounded-full mb-6">
+            <span className="info-item inline-block px-4 py-1.5 bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-[0.2em] rounded-full mb-2">
               {product.categorySlug?.replace(/-/g, ' ') || t('product_detail.organic_treasure')}
             </span>
             <h1 className="info-item text-4xl md:text-5xl lg:text-6xl font-serif text-dark leading-tight mb-4">
               {getName(product.name)}
             </h1>
             <div className="info-item flex items-center gap-4 text-2xl font-serif text-gold">
-              <span>{product.price} MAD</span>
+              <span className="font-bold">{product.price} MAD</span>
               {product.originalPrice && (
-                <span className="text-dark/20 line-through text-lg">{product.originalPrice} MAD</span>
+                <span className="text-dark/20 font-semibold line-through text-lg">{product.originalPrice} MAD</span>
               )}
             </div>
           </div>
@@ -179,7 +179,7 @@ function ProductDetails() {
             }}
           />
 
-          <div className="info-item grid grid-cols-1 sm:grid-cols-2 gap-6 py-10 border-y border-black/5">
+          <div className="info-item grid grid-cols-1 sm:grid-cols-2 gap-6 py-4 border-y border-black/5">
             <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-gold/5 flex items-center justify-center rounded-full text-gold"><ShieldCheck size={20} /></div>
                 <span className="text-[15px] uppercase font-bold tracking-widest text-dark/40 line-clamp-1">{t('product_detail.pure_quality')}</span>
@@ -198,25 +198,22 @@ function ProductDetails() {
             </div>
             <button 
               onClick={handleAddToCart}
-              className="w-[20rem] flex items-center justify-center gap-3 bg-dark text-cream py-5 rounded-2xl hover:bg-gold hover:text-dark transition-all duration-300 font-bold uppercase tracking-widest text-xs shadow-xl active:scale-95"
+              className="w-[20rem] cursor-pointer flex items-center justify-center gap-3 bg-dark text-cream py-5 rounded-2xl hover:bg-gold hover:text-dark transition-all ease-linear duration-300 font-bold  tracking-widest text-xs shadow-xl active:scale-95"
             >
               <ShoppingBag size={18} /> {t('product_detail.add_to_cart')}
             </button>
           </div>
 
-          <div className="info-item flex items-center gap-3 text-dark/30">
-            <RefreshCw size={14} />
-            <span className="text-[1rem] uppercase font-bold tracking-[0.2em]">{t('product_detail.satisfaction')}</span>
-          </div>
+         
         </div>
       </div>
 
-      {/* Reviews Section */}
-      <div className="reviews-section mt-10 max-w-7xl lg:max-w-[95vw] mx-auto px-6">
+      {/* reviews section */}
+      <div className="reviews-section my-20 max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 bg-white border border-black/5 rounded-[40px] p-8 md:p-12 shadow-sm overflow-hidden">
           
           <div className="w-full md:w-1/3 flex flex-col">
-            <h2 className="text-4xl font-serif text-dark mb-6">{t('reviews.title')}</h2>
+            <h2 className="text-3xl font-serif text-dark mb-6">{t('reviews.title')}</h2>
             
             <div className="flex items-center gap-4 mb-8">
               <div className="text-5xl font-serif text-gold">{averageRating}</div>
@@ -226,7 +223,7 @@ function ProductDetails() {
                     <Star key={i} size={16} fill={i < Math.floor(averageRating) ? "currentColor" : "none"} className={i < Math.floor(averageRating) ? "text-gold" : "text-black/10"} />
                   ))}
                 </div>
-                <p className="text-[1rem] uppercase font-bold tracking-widest text-dark/30">
+                <p className="text-[0.8rem] uppercase font-bold tracking-widest text-dark/30">
                   {t('reviews.based_on', { count: approvedReviews.length })}
                 </p>
               </div>
@@ -234,7 +231,7 @@ function ProductDetails() {
 
             <button 
               onClick={() => setShowReviewForm(!showReviewForm)}
-              className="w-full py-4 bg-dark text-cream hover:bg-gold hover:text-dark rounded-2xl text-[1rem] uppercase font-bold tracking-[0.2em] transition-all duration-500 flex items-center justify-center gap-3 shadow-md shadow-dark/5"
+              className="w-full py-4 bg-dark text-cream hover:bg-gold hover:text-dark rounded-2xl text-[0.9rem]  font-bold tracking-[0.2em] transition-all duration-500 flex items-center justify-center gap-3 shadow-md shadow-dark/5"
             >
               <MessageSquare size={14} />
               {t('reviews.write_review')}
@@ -307,8 +304,8 @@ function ProductDetails() {
 
           <div className="w-full md:w-2/3 space-y-8">
             {approvedReviews.length === 0 ? (
-              <div className="h-full flex items-center justify-center py-20 text-center border border-dashed border-black/5 rounded-[32px]">
-                <p className="font-serif italic text-dark/30">{t('reviews.no_reviews')}</p>
+              <div className="h-full flex items-center justify-center py-10 lg:py-20 md:py-20 text-center border border-dashed border-black/5 font-semibold text-[1rem] rounded-[32px]">
+                <p className="font-serif text-dark/30">{t('reviews.no_reviews')}</p>
               </div>
             ) : (
               approvedReviews.map((review) => (

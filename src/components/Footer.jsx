@@ -18,8 +18,8 @@ function Footer() {
         {/* Top: Centered Logo */}
         <div className="flex justify-center mb-20 animate-fade-in">
           <Link to="/" className="group flex flex-col items-center">
-            <span className="text-3xl md:text-4xl font-serif font-black italic tracking-tighter text-dark text-center">
-              Agram<span className="text-gold not-italic"> Souss</span>
+            <span className="text-3xl md:text-4xl font-serif font-black  tracking-tighter text-dark text-center">
+              Agram<span className="text-gold"> Souss</span>
             </span>
             <div className="w-8 h-[1px] bg-gold/30 mt-2 group-hover:w-16 transition-all duration-700" />
           </Link>
@@ -34,7 +34,7 @@ function Footer() {
             <ul className="space-y-4">
               {NAV_LINKS.map((link) => (
                 <li key={link.nameKey}>
-                  <Link to={link.path} className="text-[16px] text-dark/50 hover:text-gold transition-all duration-300 font-serif italic">
+                  <Link to={link.path} className="text-[16px] text-dark/50 hover:text-gold transition-all duration-300 font-serif ">
                     {t(link.nameKey)}
                   </Link>
                 </li>
@@ -48,7 +48,7 @@ function Footer() {
             <ul className="space-y-4">
               {LEGAL_LINKS.map((link) => (
                 <li key={link.nameKey}>
-                  <Link to={link.path} className="text-[16px] text-dark/50 hover:text-gold transition-all duration-300 font-serif italic">
+                  <Link to={link.path} className="text-[16px] text-dark/50 hover:text-gold transition-all duration-300 font-serif ">
                     {t(link.nameKey)}
                   </Link>
                 </li>
@@ -60,13 +60,13 @@ function Footer() {
           <div className="flex flex-col">
             <h4 className="text-[17px] uppercase font-black text-dark tracking-[0.3em] mb-8 opacity-80 decoration-gold/30 underline underline-offset-8">{t('footer.contact')}</h4>
             <ul className="space-y-4">
-              <li className="text-[17px] text-dark/50 font-serif italic lowercase hover:text-gold transition-colors">
+              <li className="text-[17px] text-dark/50 font-serif  lowercase hover:text-gold transition-colors">
                 <a href={`mailto:${BOUTIQUE_INFO.email}`}>{BOUTIQUE_INFO.email}</a>
               </li>
-              <li className="text-[16px] text-dark/50 font-serif italic">
+              <li className="text-[16px] text-dark/50 font-serif ">
                 {t('footer.contact_form')}
               </li>
-              <li className="text-[16px] text-dark/50 font-serif italic">
+              <li className="text-[16px] text-dark/50 font-serif ">
                 {BOUTIQUE_INFO.phone}
               </li>
             </ul>

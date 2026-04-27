@@ -81,7 +81,7 @@ function App() {
             } />
 
             <Route path="/about" element={
-              <div className="pt-20">
+              <div className="pt-16">
                 <About />
               </div>
             } />

@@ -55,7 +55,7 @@ function Products() {
       <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6">
         
         <div className="title-anim mb-12 flex flex-col items-center text-center">
-          <span className="text-gold text-[10px] tracking-[0.4em] uppercase font-bold mb-4">
+          <span className="text-gold text-[0.8rem] tracking-[0.4em] uppercase font-bold mb-4">
             {t('products.tag')}
           </span>
           <h2 className="text-4xl md:text-5xl font-serif text-dark lowercase italic leading-tight mb-2">
@@ -67,7 +67,7 @@ function Products() {
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <button 
                 onClick={() => setActiveTab("all")}
-                className={`px-6 py-2 text-[10px] uppercase font-bold tracking-widest rounded-full transition-all duration-300 border ${activeTab === 'all' ? 'bg-dark text-cream border-dark' : 'bg-transparent text-dark/40 border-black/5 hover:border-gold/30 hover:text-gold'}`}
+                className={`px-6 py-2 text-[0.8rem] lg:text-[0.8rem]  md:text-[1rem] font-bold tracking-widest rounded-full transition-all duration-300 border ${activeTab === 'all' ? 'bg-dark text-cream border-dark' : 'bg-transparent text-dark/40 border-black/5 hover:border-gold/30 hover:text-gold'}`}
               >
                 {t('shop.all_products') || 'Tout'}
               </button>
@@ -75,7 +75,7 @@ function Products() {
                 <button 
                   key={cat.slug}
                   onClick={() => setActiveTab(cat.slug)}
-                  className={`px-6 py-2 text-[10px] uppercase font-bold tracking-widest rounded-full transition-all duration-300 border ${activeTab === cat.slug ? 'bg-dark text-cream border-dark' : 'bg-transparent text-dark/40 border-black/5 hover:border-gold/30 hover:text-gold'}`}
+                  className={`px-6 py-2 text-[0.8rem] lg:text-[0.8rem] md:text-[1rem]  font-bold tracking-widest rounded-full transition-all duration-300 border ${activeTab === cat.slug ? 'bg-dark text-cream border-dark' : 'bg-transparent text-dark/40 border-black/5 hover:border-gold/30 hover:text-gold'}`}
                 >
                   {cat.name}
                 </button>
@@ -107,9 +107,9 @@ function Products() {
         <div className="mt-16 flex justify-center">
           <Link 
             to="/shop" 
-            className="group relative px-10 py-4 bg-dark text-cream rounded-full overflow-hidden transition-all duration-300 hover:pr-14 shadow-xl"
+            className="group relative px-10 py-4 bg-dark text-cream rounded-full overflow-hidden transition-all ease-linear duration-300 hover:pr-14 shadow-xl"
           >
-            <span className="relative z-10 text-[10px] uppercase font-bold tracking-[0.2em]">{t('products.see_more')}</span>
+            <span className="relative z-10 text-[0.8rem] md:text-[1rem]  font-bold tracking-[0.2em]">{t('products.see_more')}</span>
             <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300">→</div>
             <div className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </Link>

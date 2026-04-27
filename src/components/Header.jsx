@@ -82,7 +82,7 @@ function Header() {
               <Link 
                 key={item.nameKey} 
                 to={item.path} 
-                className={`text-xs tracking-widest  transition-all duration-500 ${textMutedColor} hover:text-gold`}
+                className={`text-xs tracking-widest font-bold  transition-all duration-500 ${textMutedColor} hover:text-gold`}
               >
                 {t(item.nameKey)}
               </Link>

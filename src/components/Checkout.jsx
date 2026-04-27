@@ -108,7 +108,7 @@ function Checkout() {
             {t('checkout.order_confirmed')} <span className="text-dark font-bold underline decoration-gold/30">{formData.city}</span>.
           </p>
           <Link
-            to="/"
+            to="/shop"
             className="inline-flex items-center gap-2 bg-dark text-cream px-10 py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-gold hover:text-dark transition-all duration-500"
           >
             {t('checkout.return')} <ArrowRight size={14} className="rtl:rotate-180" />
@@ -213,7 +213,7 @@ function Checkout() {
               <button
                 type="submit"
                 disabled={isProcessing}
-                className="w-full bg-dark text-cream py-6 rounded-2xl font-bold uppercase tracking-[0.3em] text-[15px] hover:bg-gold hover:text-dark transition-all duration-500 shadow-xl shadow-dark/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-dark text-cream py-6 rounded-2xl font-bold  tracking-[0.3em] text-[15px] hover:bg-gold hover:text-dark transition-all duration-500 shadow-xl shadow-dark/10 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isProcessing ? (
                   <span className="flex items-center justify-center gap-3">

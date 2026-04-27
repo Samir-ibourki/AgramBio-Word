@@ -34,7 +34,8 @@ function Features() {
                 <h3 className="text-dark font-serif text-lg font-bold lowercase italic">
                   {t(feature.titleKey)}
                 </h3>
-                <p className="text-dark/40 text-[10px] uppercase tracking-widest font-bold leading-relaxed max-w-[200px] mx-auto">
+                <p className="text-dark/40 text-[13px]  tracking-widest font-semibold
+ leading-relaxed max-w-[200px] mx-auto lg:text-[0.8rem]">
                   {t(feature.descKey)}
                 </p>
               </div>
