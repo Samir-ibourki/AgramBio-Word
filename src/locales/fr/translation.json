@@ -192,10 +192,12 @@
     "qty": "Qté",
     "available": "Disponible pour la Livraison",
     "thank_you": "Merci !",
-    "order_confirmed": "Votre collection a été réservée. Notre équipe vous contactera bientôt pour confirmer la livraison à",
+    "order_confirmed": "Votre commande a été reçue avec succès. Notre équipe est actuellement en train de la traiter. Nous vous contacterons prochainement pour confirmer les détails de livraison à",
     "return": "Retour à la Boutique",
     "deposit_title": "Important : Acompte Requis",
-    "deposit_desc": "Pour garantir votre commande et éviter les retours, nous exigeons un acompte avant l'expédition. Vous paierez le solde restant à la livraison (Paiement à la Livraison)."
+    "deposit_desc": "Pour garantir votre commande et éviter les retours, nous exigeons un acompte avant l'expédition. Vous paierez le solde restant à la livraison (Paiement à la Livraison).",
+    "error_title": "Erreur de commande",
+    "error_message": "Un problème est survenu lors du traitement de votre commande. Veuillez réessayer."
   },
   "preloader": {
     "essence": "L'essence de la nature",
@@ -212,7 +214,7 @@
     "comment_placeholder": "Partagez votre expérience avec ce produit...",
     "submit": "Envoyer l'avis",
     "no_reviews": "Aucun avis pour le moment. Soyez le premier à partager votre expérience !",
-    "pending_approval": "Merci ! Votre avis a été envoyé et est en attente d'approbation.",
+    "pending_approval": "Votre avis a été ajouté avec succès !",
     "average_rating": "Note moyenne",
     "based_on": "Basé sur {{count}} avis"
   },
@@ -343,5 +345,11 @@
         }
       ]
     }
+  },
+  "not_found": {
+    "title": "Page introuvable",
+    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "home": "Accueil",
+    "shop": "Boutique"
   }
 }

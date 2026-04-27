@@ -19,6 +19,7 @@ const Features = lazy(() => import("./components/Features"));
 const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./components/TermsOfService"));
 const FAQ = lazy(() => import("./components/FAQ"));
+const NotFound = lazy(() => import("./components/NotFound"));
 
 
 import { Helmet } from "react-helmet-async";
@@ -81,7 +82,7 @@ function App() {
             } />
 
             <Route path="/about" element={
-              <div className="pt-20">
+              <div className="pt-16">
                 <About />
               </div>
             } />
@@ -89,6 +90,7 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="*" element={<NotFound />} />
 
 
           </Routes>  

@@ -92,3 +92,24 @@ export const getProductById = gql`
     }
   }
 `;
+
+export const getProductReviews = gql`
+  query GetProductReviews($id: ID!) {
+    product(id: $id, idType: DATABASE_ID) {
+      ... on Product {
+        reviews {
+          nodes {
+            databaseId
+            content
+            date
+            author {
+              node {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
