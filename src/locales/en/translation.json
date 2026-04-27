@@ -212,7 +212,7 @@
     "comment_placeholder": "Share your experience with this product...",
     "submit": "Submit Review",
     "no_reviews": "No reviews yet. Be the first to share your experience!",
-    "pending_approval": "Thank you! Your review has been submitted and is awaiting approval.",
+    "pending_approval": "Your review has been added successfully!",
     "average_rating": "Average Rating",
     "based_on": "Based on {{count}} reviews"
   },

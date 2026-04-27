@@ -25,3 +25,21 @@ export const createOrder = gql`
     }
   }
 `;
+
+export const writeReview = gql`
+  mutation WriteReview($input: WriteReviewInput!) {
+    writeReview(input: $input) {
+      rating
+      review {
+        id
+        content
+        date
+        author {
+          node {
+            name
+          }
+        }
+      }
+    }
+  }
+`;

@@ -212,7 +212,7 @@
     "comment_placeholder": "Partagez votre expérience avec ce produit...",
     "submit": "Envoyer l'avis",
     "no_reviews": "Aucun avis pour le moment. Soyez le premier à partager votre expérience !",
-    "pending_approval": "Merci ! Votre avis a été envoyé et est en attente d'approbation.",
+    "pending_approval": "Votre avis a été ajouté avec succès !",
     "average_rating": "Note moyenne",
     "based_on": "Basé sur {{count}} avis"
   },

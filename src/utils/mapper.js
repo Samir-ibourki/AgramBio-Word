@@ -32,6 +32,16 @@ export const mapProduct = (wpProduct) => {
     originalPrice = null;
   }
 
+  const mappedReviews = wpProduct.reviews?.nodes
+    ? wpProduct.reviews.nodes.map((r) => ({
+        id: r.id,
+        customerName: r.author?.node?.name || "Anonymous",
+        rating: r.rating || 5,
+        comment: r.content ? r.content.replace(/<[^>]*>/g, "") : "",
+        createdAt: r.date || new Date().toISOString(),
+      }))
+    : [];
+
   return {
     id: wpProduct.databaseId,
     slug: wpProduct.slug,
@@ -39,17 +49,25 @@ export const mapProduct = (wpProduct) => {
     price: price,
     originalPrice: originalPrice,
     categorySlug: categorySlug,
-    categoryName: categoryNode ? categoryNode.name : 'Uncategorized',
+    categoryName: categoryNode ? categoryNode.name : "Uncategorized",
     isNew: false,
     images: images,
     description: wpProduct.description || wpProduct.shortDescription || "",
-    rating: 5.0, 
-    reviews: 0,
+    rating:
+      mappedReviews.length > 0
+        ? parseFloat(
+            (
+              mappedReviews.reduce((acc, r) => acc + r.rating, 0) /
+              mappedReviews.length
+            ).toFixed(1),
+          )
+        : 5.0,
+    reviews: mappedReviews,
     features: [
       { icon: "ShieldCheck", textKey: "product.features.pure" },
       { icon: "Droplets", textKey: "product.features.raw" },
-      { icon: "Leaf", textKey: "product.features.organic" }
-    ]
+      { icon: "Leaf", textKey: "product.features.organic" },
+    ],
   };
 };
 
