@@ -2,7 +2,7 @@ import { useRef, memo } from "react";
 import { useGSAP } from "@gsap/react";
 import { useTranslation } from "react-i18next";
 import gsap from "gsap";
-import bg from "../assets/bg2.webp";
+import bg from "../assets/bg.webp";
 import { useAnimation } from "../context/AnimationContext";
 import { Link } from "react-router-dom";
 
@@ -76,25 +76,25 @@ const Hero = memo(function Hero() {
       />
       <div
         ref={overlayRef}
-        className="absolute inset-0 bg-linear-to-b from-[rgba(5,3,0,0.3)] via-[rgba(5,3,0,0.62)] to-[rgba(5,3,0,0.88)]"
+        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.45),rgba(0,0,0,0.65))] backdrop-blur-[1.5px] "
       />
 
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl w-full">
         <span
           ref={tagRef}
-          className="font-montserrat text-[0.62rem] tracking-[0.38em] text-gold uppercase font-semibold mb-8"
+          className="font-montserrat text-[0.8rem] tracking-[0.38em] text-gold uppercase font-semibold mb-8"
         >
           {t("hero.tag")}
         </span>
 
         <h1
           ref={titleRef}
-          className="text-[clamp(3.2rem,8vw,7.5rem)] font-light text-cream leading-[1.05] tracking-[-0.01em] perspective-[600px]"
+          className="text-[clamp(3.2rem,8vw,7.5rem)] font-light text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] leading-[1.05] tracking-[-0.01em] perspective-[600px]"
         >
           <span className="word inline-block italic font-light">
             {t("hero.title_1")}&nbsp;
           </span>
-          <span className="word inline-block font-bold text-gold drop-shadow-[0_0_80px_rgba(201,168,76,0.35)]">
+          <span className="word inline-block font-bold text-gold drop-shadow-[0_10px_40px_rgba(201,168,76,0.45)]">
             {t("hero.title_2")}&nbsp;
           </span>
           <span className="word inline-block font-bold">
@@ -109,16 +109,16 @@ const Hero = memo(function Hero() {
 
         <p
           ref={descRef}
-          className="font-montserrat text-[clamp(0.8rem,1.4vw,0.97rem)] text-cream/70 max-w-115 leading-[1.9] font-light tracking-wide mb-[2.8rem]"
+          className="font-montserrat text-[clamp(0.8rem,1.4vw,0.97rem)] text-white max-w-115 leading-[1.9] font-light tracking-wide mb-[2.8rem]"
         >
           {t("hero.description")}
         </p>
 
         <div ref={btnsRef} className="flex flex-wrap gap-4 justify-center">
-          <Link to="/shop" className="cursor-pointer px-8 py-4 bg-gold text-black font-medium rounded-full hover:bg-gold/90 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out">
+          <Link to="/shop" className="cursor-pointer px-8 py-4 bg-gold text-black shadow-[0_10px_30px_rgba(0,0,0,0.25)] font-medium rounded-full hover:bg-gold/90 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out">
             {t("hero.shop_now")}
           </Link>
-          <Link to="/about" className="cursor-pointer px-8 py-4 border border-gold text-cream font-medium rounded-full hover:bg-gold/10 hover:scale-[1.02] transition-all duration-300 ease-out">
+          <Link to="/about" className="cursor-pointer px-8 py-4 border border-white/30 text-white backdrop-blur-md bg-white/5 font-medium rounded-full hover:bg-gold/10 hover:scale-[1.02] transition-all duration-300 ease-out">
             {t("hero.our_story") || "About Us"}
           </Link>
         </div>

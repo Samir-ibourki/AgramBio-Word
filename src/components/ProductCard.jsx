@@ -23,14 +23,14 @@ function ProductCard({ product }) {
   };
 
   return (
-    <div className="group bg-[#FCFAFA] rounded-2xl md:rounded-3xl overflow-hidden border border-black/5 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] flex flex-col h-full">
+    <div className="group bg-white rounded-2xl md:rounded-3xl overflow-hidden border border-black/[0.03] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 ease-out hover:-translate-y-[8px] flex flex-col h-full">
       <Link to={`/product/${product.id}`} className="block flex-1 group/link">
         <div className="relative aspect-square overflow-hidden bg-white">
           <img 
             src={product.images && product.images[0] ? product.images[0] : "/placeholder.png"} 
             alt={getName()}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover/link:scale-105"
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover/link:opacity-100 transition-opacity duration-300 ease-out pointer-events-none"></div>
           {product.originalPrice && (

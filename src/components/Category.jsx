@@ -55,7 +55,7 @@ function Category() {
           <span className="text-gold text-[8px] md:text-[10px] tracking-[0.4em] uppercase font-bold mb-2 md:mb-4">
             {t("category.tag")}
           </span>
-          <h2 className="text-2xl md:text-4xl font-serif text-dark italic leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-dark italic leading-tight">
             {t("category.title_prefix")}{" "}
             <span className="text-gold not-italic font-bold tracking-tighter uppercase">
               {t("category.title_highlight")}

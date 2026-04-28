@@ -259,7 +259,7 @@ function Shop() {
                       className="fixed inset-0 z-10"
                       onClick={() => setIsSortOpen(false)}
                     />
-                    <div className="absolute top-full right-0 mt-3 w-48 bg-white border border-black/5 rounded-2xl shadow-xl z-20 overflow-hidden py-2">
+                    <div className="absolute top-full right-0 rtl:right-auto rtl:left-0 mt-3 w-48 bg-white border border-black/5 rounded-2xl shadow-xl z-20 overflow-hidden py-2">
                       {sortOptions.map((opt) => (
                         <button
                           key={opt.value}
@@ -267,7 +267,7 @@ function Shop() {
                             setSortBy(opt.value);
                             setIsSortOpen(false);
                           }}
-                          className={`w-full text-left px-6 py-3 text-[10px] uppercase font-bold tracking-widest transition-colors ${sortBy === opt.value ? "bg-gold/5 text-gold" : "text-dark/40 hover:bg-black/5 hover:text-dark"}`}
+                          className={`w-full text-start px-6 py-3 text-[10px] uppercase font-bold tracking-widest transition-colors ${sortBy === opt.value ? "bg-gold/5 text-gold" : "text-dark/40 hover:bg-black/5 hover:text-dark"}`}
                         >
                           {t(opt.labelKey)}
                         </button>

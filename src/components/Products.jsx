@@ -82,7 +82,7 @@ function Products() {
           <span className="text-gold text-[0.8rem] tracking-[0.4em] uppercase font-bold mb-4">
             {t("products.tag")}
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif text-dark lowercase italic leading-tight mb-2">
+          <h2 className="text-3xl md:text-5xl font-serif text-dark lowercase italic leading-tight mb-2">
             {t("products.title_prefix")}{" "}
             <span className="text-gold not-italic font-bold tracking-tighter uppercase">
               {t("products.title_highlight")}
