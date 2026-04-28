@@ -348,7 +348,7 @@ function ProductDetails() {
             </div>
             <button
               onClick={handleAddToCart}
-              className="w-[20rem] cursor-pointer flex items-center justify-center gap-3 bg-dark text-cream py-5 rounded-full hover:bg-gold hover:text-dark hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out font-bold  tracking-widest text-xs shadow-xl active:scale-95"
+              className="w-[20rem] cursor-pointer flex items-center justify-center gap-3 bg-dark text-cream py-5 rounded-full hover:bg-gold hover:text-dark hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out font-bold  tracking-widest text-xs shadow-xl"
             >
               <ShoppingBag size={18} /> {t("product_detail.add_to_cart")}
             </button>
@@ -393,7 +393,7 @@ function ProductDetails() {
 
             <button
               onClick={() => setShowReviewForm(!showReviewForm)}
-              className="w-full py-4 bg-dark text-cream hover:bg-gold hover:text-dark hover:scale-[1.02] rounded-full text-[0.8rem]  font-bold tracking-[0.2em] transition-all duration-300 ease-out flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]"
+              className="w-full py-4 bg-dark text-cream hover:bg-gold hover:text-dark rounded-full text-[0.8rem]  font-bold tracking-[0.2em] transition-all duration-300 ease-out flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]"
             >
               <MessageSquare size={14} />
               {t("reviews.write_review")}
@@ -486,7 +486,7 @@ function ProductDetails() {
                     <button
                       type="submit"
                       disabled={submitLoading}
-                      className="w-full bg-dark text-cream py-4 rounded-full font-bold uppercase tracking-widest text-[1rem] hover:bg-gold hover:text-dark hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out shadow-lg disabled:opacity-50 flex items-center justify-center gap-2"
+                      className="w-full bg-dark text-cream py-4 rounded-full font-bold uppercase tracking-widest text-[1rem] hover:bg-gold hover:text-dark hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out shadow-lg disabled:opacity-50 flex items-center justify-center gap-2"
                     >
                       {submitLoading ? (
                         <span className="flex items-center justify-center gap-2">
@@ -601,7 +601,7 @@ function ProductDetails() {
             </p>
             <button
               onClick={() => setShowSuccessModal(false)}
-              className="bg-dark cursor-pointer text-cream font-bold py-3.5 px-8 rounded-full hover:bg-gold hover:text-dark hover:scale-[1.02] hover:shadow-lg shadow-md transition-all duration-300 ease-out tracking-widest uppercase text-sm"
+              className="bg-dark cursor-pointer text-cream font-bold py-3.5 px-8 rounded-full hover:bg-gold hover:text-dark hover:shadow-lg shadow-md transition-all duration-300 ease-out tracking-widest uppercase text-sm"
             >
               {t("checkout.ok") || "OK"}
             </button>

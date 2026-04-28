@@ -115,10 +115,10 @@ const Hero = memo(function Hero() {
         </p>
 
         <div ref={btnsRef} className="flex flex-wrap gap-4 justify-center">
-          <Link to="/shop" className="cursor-pointer px-8 py-4 bg-gold text-black shadow-[0_10px_30px_rgba(0,0,0,0.25)] font-medium rounded-full hover:bg-gold/90 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out">
+          <Link to="/shop" className="cursor-pointer px-8 py-4 bg-gold text-black shadow-[0_10px_30px_rgba(0,0,0,0.25)] font-medium rounded-full hover:bg-gold/90 hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out">
             {t("hero.shop_now")}
           </Link>
-          <Link to="/about" className="cursor-pointer px-8 py-4 border border-white/30 text-white backdrop-blur-md bg-white/5 font-medium rounded-full hover:bg-gold/10 hover:scale-[1.02] transition-all duration-300 ease-out">
+          <Link to="/about" className="cursor-pointer px-8 py-4 border border-white/30 text-white backdrop-blur-md bg-white/5 font-medium rounded-full hover:bg-gold/10 transition-all duration-300 ease-out">
             {t("hero.our_story") || "About Us"}
           </Link>
         </div>

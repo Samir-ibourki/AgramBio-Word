@@ -125,7 +125,7 @@ function Checkout() {
           </p>
           <Link
             to="/shop"
-            className="inline-flex items-center gap-2 bg-dark text-cream px-10 py-5 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-gold hover:text-dark hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] shadow-lg transition-all duration-300 ease-out"
+            className="inline-flex items-center gap-2 bg-dark text-cream px-10 py-5 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-gold hover:text-dark hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] shadow-lg transition-all duration-300 ease-out"
           >
             {t("checkout.return")}{" "}
             <ArrowRight size={14} className="rtl:rotate-180" />
@@ -266,7 +266,7 @@ function Checkout() {
               <button
                 type="submit"
                 disabled={isProcessing}
-                className="w-full bg-dark text-cream py-6 rounded-full font-bold tracking-[0.3em] text-[15px] hover:bg-gold hover:text-dark hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] shadow-xl shadow-dark/10 transition-all duration-300 ease-out disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-dark text-cream py-6 rounded-full font-bold tracking-[0.3em] text-[15px] hover:bg-gold hover:text-dark hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] shadow-xl shadow-dark/10 transition-all duration-300 ease-out disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isProcessing ? (
                   <span className="flex items-center justify-center gap-3">
@@ -379,7 +379,7 @@ function Checkout() {
             </p>
             <button
               onClick={() => setShowErrorModal(false)}
-              className="bg-dark cursor-pointer text-cream font-bold py-3.5 px-8 rounded-full hover:bg-gold hover:text-dark hover:scale-[1.02] hover:shadow-lg shadow-md transition-all duration-300 ease-out tracking-widest uppercase text-sm"
+              className="bg-dark cursor-pointer text-cream font-bold py-3.5 px-8 rounded-full hover:bg-gold hover:text-dark hover:shadow-lg shadow-md transition-all duration-300 ease-out tracking-widest uppercase text-sm"
             >
               OK
             </button>

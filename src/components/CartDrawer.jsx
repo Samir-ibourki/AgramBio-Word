@@ -167,7 +167,7 @@ function CartDrawer({ isOpen, onClose }) {
               <Link
                 to="/checkout"
                 onClick={onClose}
-                className="block w-full bg-dark text-cream text-center py-5 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-gold hover:text-dark hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out shadow-xl shadow-dark/10"
+                className="block w-full bg-dark text-cream text-center py-5 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-gold hover:text-dark hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out shadow-xl shadow-dark/10"
               >
                 {t("cart.checkout")}
               </Link>

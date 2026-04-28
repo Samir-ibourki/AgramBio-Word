@@ -2,12 +2,12 @@
 
 @theme {
   --color-primary: #142117;
-  --color-secondary: #A3782E;
-  --color-accent: #FAF7F2;
-  --color-gold: #A88038;
-  --color-cream: #F2EBD9;
-  --color-dark: #0F1210;
-  --color-brown: #543E2B;
+  --color-secondary: #ad4510;
+  --color-accent: #fef9ec;
+  --color-gold: #f2a82d;
+  --color-cream: #fcedc9;
+  --color-dark: #421506;
+  --color-brown: #8d3513;
   
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
@@ -73,4 +73,10 @@ body {
 
 .nav-link:hover {
   color: var(--color-secondary);
+}
+
+button, a {
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 600ms;
 }
