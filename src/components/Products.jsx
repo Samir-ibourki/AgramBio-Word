@@ -140,14 +140,12 @@ function Products() {
         <div className="mt-16 flex justify-center">
           <Link
             to="/shop"
-            className="group relative px-10 py-4 bg-dark text-cream rounded-full overflow-hidden transition-all ease-linear duration-300 hover:pr-14 shadow-xl"
+            className="group relative px-10 py-4 bg-dark text-cream rounded-full cursor-pointer overflow-hidden transition-all ease-linear duration-400 hover:pr-14 shadow-xl"
           >
             <span className="relative z-10 text-[0.8rem] md:text-[1rem]  font-bold tracking-[0.2em]">
               {t("products.see_more")}
             </span>
-            <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-              →
-            </div>
+           
             <div className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </Link>
         </div>

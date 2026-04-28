@@ -144,13 +144,13 @@ function CartDrawer({ isOpen, onClose }) {
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span className="text-dark/40">{t("cart.subtotal")}</span>
-                  <span className="text-dark font-bold font-serif">
+                  <span className="text-dark font-bold font-sans">
                     {subtotal} MAD
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-dark/40">{t("cart.shipping")}</span>
-                  <span className="text-dark font-bold font-serif">
+                  <span className="text-dark font-bold font-sans">
                     {shippingFee} MAD
                   </span>
                 </div>
@@ -158,7 +158,7 @@ function CartDrawer({ isOpen, onClose }) {
                   <span className="font-serif italic font-bold text-dark">
                     {t("cart.total")}
                   </span>
-                  <span className="text-gold font-bold font-serif">
+                  <span className="text-gold font-bold font-sans">
                     {total} MAD
                   </span>
                 </div>
@@ -167,7 +167,7 @@ function CartDrawer({ isOpen, onClose }) {
               <Link
                 to="/checkout"
                 onClick={onClose}
-                className="block w-full bg-dark text-cream text-center py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-gold hover:text-dark transition-all duration-500 shadow-xl shadow-dark/10"
+                className="block w-full bg-dark text-cream text-center py-5 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-gold hover:text-dark hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out shadow-xl shadow-dark/10"
               >
                 {t("cart.checkout")}
               </Link>

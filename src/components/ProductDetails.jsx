@@ -289,9 +289,9 @@ function ProductDetails() {
               {getName(product.name)}
             </h1>
             <div className="info-item flex items-center gap-4 text-2xl font-serif text-gold">
-              <span className="font-bold">{product.price} MAD</span>
+              <span className="font-bold font-sans">{product.price} MAD</span>
               {product.originalPrice && (
-                <span className="text-dark/20 font-semibold line-through text-lg">
+                <span className="text-dark/20 font-semibold line-through text-lg font-sans">
                   {product.originalPrice} MAD
                 </span>
               )}
@@ -329,7 +329,7 @@ function ProductDetails() {
           </div>
 
           <div className="info-item flex items-center gap-4 pt-4">
-            <div className="flex items-center justify-between bg-white border border-black/5 rounded-2xl px-4 py-3 shadow-sm min-w-30">
+            <div className="flex items-center justify-between bg-white border border-black/5 rounded-full px-4 py-3 shadow-[0_4px_12px_rgba(0,0,0,0.03)] min-w-30">
               <button
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
                 className="p-1 text-dark/40 hover:text-gold transition-colors"
@@ -348,7 +348,7 @@ function ProductDetails() {
             </div>
             <button
               onClick={handleAddToCart}
-              className="w-[20rem] cursor-pointer flex items-center justify-center gap-3 bg-dark text-cream py-5 rounded-2xl hover:bg-gold hover:text-dark transition-all ease-linear duration-300 font-bold  tracking-widest text-xs shadow-xl active:scale-95"
+              className="w-[20rem] cursor-pointer flex items-center justify-center gap-3 bg-dark text-cream py-5 rounded-full hover:bg-gold hover:text-dark hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out font-bold  tracking-widest text-xs shadow-xl active:scale-95"
             >
               <ShoppingBag size={18} /> {t("product_detail.add_to_cart")}
             </button>
@@ -365,7 +365,7 @@ function ProductDetails() {
             </h2>
 
             <div className="flex items-center gap-4 mb-8">
-              <div className="text-5xl font-serif text-gold">
+              <div className="text-5xl font-sans font-bold text-gold">
                 {averageRating}
               </div>
               <div>
@@ -393,7 +393,7 @@ function ProductDetails() {
 
             <button
               onClick={() => setShowReviewForm(!showReviewForm)}
-              className="w-full py-4 bg-dark text-cream hover:bg-gold hover:text-dark rounded-2xl text-[0.9rem]  font-bold tracking-[0.2em] transition-all duration-500 flex items-center justify-center gap-3 shadow-md shadow-dark/5"
+              className="w-full py-4 bg-dark text-cream hover:bg-gold hover:text-dark hover:scale-[1.02] rounded-full text-[0.9rem]  font-bold tracking-[0.2em] transition-all duration-300 ease-out flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]"
             >
               <MessageSquare size={14} />
               {t("reviews.write_review")}
@@ -460,7 +460,7 @@ function ProductDetails() {
                             customerName: e.target.value,
                           })
                         }
-                        className="w-full bg-cream/20 border border-black/5 rounded-xl px-4 py-3 text-sm outline-none focus:border-gold/30 transition-all"
+                        className="w-full bg-cream/10 border border-dark/10 rounded-2xl px-4 py-3 text-sm outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 hover:border-dark/20 transition-all duration-300 ease-out shadow-[0_4px_12px_rgba(0,0,0,0.02)] focus:shadow-[0_10px_20px_rgba(0,0,0,0.05)]"
                       />
                     </div>
 
@@ -479,14 +479,14 @@ function ProductDetails() {
                             comment: e.target.value,
                           })
                         }
-                        className="w-full bg-cream/20 border border-black/5 rounded-xl px-4 py-3 text-sm outline-none focus:border-gold/30 transition-all resize-none"
+                        className="w-full bg-cream/10 border border-dark/10 rounded-2xl px-4 py-3 text-sm outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 hover:border-dark/20 transition-all duration-300 ease-out shadow-[0_4px_12px_rgba(0,0,0,0.02)] focus:shadow-[0_10px_20px_rgba(0,0,0,0.05)] resize-none"
                       ></textarea>
                     </div>
 
                     <button
                       type="submit"
                       disabled={submitLoading}
-                      className="w-full bg-dark text-cream py-4 rounded-xl font-bold uppercase tracking-widest text-[1rem] hover:bg-gold hover:text-dark transition-all duration-300 shadow-lg disabled:opacity-50 flex items-center justify-center gap-2"
+                      className="w-full bg-dark text-cream py-4 rounded-full font-bold uppercase tracking-widest text-[1rem] hover:bg-gold hover:text-dark hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out shadow-lg disabled:opacity-50 flex items-center justify-center gap-2"
                     >
                       {submitLoading ? (
                         <span className="flex items-center justify-center gap-2">
@@ -601,7 +601,7 @@ function ProductDetails() {
             </p>
             <button
               onClick={() => setShowSuccessModal(false)}
-              className="bg-dark cursor-pointer text-cream font-bold py-3.5 px-8 rounded-xl hover:bg-gold hover:text-dark transition-all duration-300 tracking-widest uppercase text-sm"
+              className="bg-dark cursor-pointer text-cream font-bold py-3.5 px-8 rounded-full hover:bg-gold hover:text-dark hover:scale-[1.02] hover:shadow-lg shadow-md transition-all duration-300 ease-out tracking-widest uppercase text-sm"
             >
               {t("checkout.ok") || "OK"}
             </button>
