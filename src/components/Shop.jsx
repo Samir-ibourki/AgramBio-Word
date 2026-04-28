@@ -11,10 +11,13 @@ import { mapProducts } from "../utils/mapper";
 function Shop() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [inputValue, setInputValue] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const selectedCategories = useMemo(() => {
+    const cat = searchParams.get("category");
+    return cat ? cat.split(",") : [];
+  }, [searchParams]);
   const [priceRange, setPriceRange] = useState(1000);
   // const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [sortBy, setSortBy] = useState("newest");
@@ -35,19 +38,20 @@ function Shop() {
     [],
   );
 
-  useEffect(() => {
-    const catParam = searchParams.get("category");
-    if (catParam && !selectedCategories.includes(catParam)) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setSelectedCategories([catParam]);
-    }
-  }, [searchParams, selectedCategories]);
-
   const toggleCategory = useCallback((slug) => {
-    setSelectedCategories((prev) =>
-      prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug],
-    );
-  }, []);
+    const current = searchParams.get("category") ? searchParams.get("category").split(",") : [];
+    const next = current.includes(slug)
+      ? current.filter((s) => s !== slug)
+      : [...current, slug];
+    
+    const newParams = new URLSearchParams(searchParams);
+    if (next.length > 0) {
+      newParams.set("category", next.join(","));
+    } else {
+      newParams.delete("category");
+    }
+    setSearchParams(newParams);
+  }, [searchParams, setSearchParams]);
 
   const { data, loading, error } = useQuery(getProducts, {
     variables: { first: 50 },
@@ -212,7 +216,9 @@ function Shop() {
               priceRange < 1000) && (
               <button
                 onClick={() => {
-                  setSelectedCategories([]);
+                  const newParams = new URLSearchParams(searchParams);
+                  newParams.delete("category");
+                  setSearchParams(newParams);
                   setInputValue("");
                   setPriceRange(1000);
                 }}
