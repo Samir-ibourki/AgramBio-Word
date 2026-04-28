@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import gsap from "gsap";
 import bg from "../assets/bg2.webp";
 import { useAnimation } from "../context/AnimationContext";
+import { Link } from "react-router-dom";
 
 const Hero = memo(function Hero() {
   const { t } = useTranslation();
@@ -20,8 +21,6 @@ const Hero = memo(function Hero() {
 
   useGSAP(
     () => {
-      if (!isReady) return;
-
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       gsap.fromTo(
@@ -116,12 +115,12 @@ const Hero = memo(function Hero() {
         </p>
 
         <div ref={btnsRef} className="flex flex-wrap gap-4 justify-center">
-          <a className="cursor-pointer px-8 py-4 bg-gold text-black font-medium rounded-full hover:bg-gold/90 transition-all">
+          <Link to="/shop" className="cursor-pointer px-8 py-4 bg-gold text-black font-medium rounded-full hover:bg-gold/90 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out">
             {t("hero.shop_now")}
-          </a>
-          <a className="cursor-pointer px-8 py-4 border border-gold text-cream font-medium rounded-full hover:bg-gold/10 transition-all">
-            {t("hero.our_story")}
-          </a>
+          </Link>
+          <Link to="/about" className="cursor-pointer px-8 py-4 border border-gold text-cream font-medium rounded-full hover:bg-gold/10 hover:scale-[1.02] transition-all duration-300 ease-out">
+            {t("hero.our_story") || "About Us"}
+          </Link>
         </div>
       </div>
     </section>

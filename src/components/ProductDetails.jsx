@@ -360,12 +360,12 @@ function ProductDetails() {
       <div className="reviews-section my-20 max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 bg-white border border-black/5 rounded-[40px] p-8 md:p-12 shadow-sm overflow-hidden">
           <div className="w-full md:w-1/3 flex flex-col">
-            <h2 className="text-3xl font-serif text-dark mb-6">
+            <h2 className="text-2xl font-serif text-dark mb-6">
               {t("reviews.title")}
             </h2>
 
             <div className="flex items-center gap-4 mb-8">
-              <div className="text-5xl font-sans font-bold text-gold">
+              <div className="text-3xl font-sans font-bold text-gold">
                 {averageRating}
               </div>
               <div>
@@ -385,7 +385,7 @@ function ProductDetails() {
                     />
                   ))}
                 </div>
-                <p className="text-[0.8rem] uppercase font-bold tracking-widest text-dark/30">
+                <p className="text-[0.7rem] uppercase font-bold tracking-widest text-dark/30">
                   {t("reviews.based_on", { count: reviews.length })}
                 </p>
               </div>
@@ -393,7 +393,7 @@ function ProductDetails() {
 
             <button
               onClick={() => setShowReviewForm(!showReviewForm)}
-              className="w-full py-4 bg-dark text-cream hover:bg-gold hover:text-dark hover:scale-[1.02] rounded-full text-[0.9rem]  font-bold tracking-[0.2em] transition-all duration-300 ease-out flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]"
+              className="w-full py-4 bg-dark text-cream hover:bg-gold hover:text-dark hover:scale-[1.02] rounded-full text-[0.8rem]  font-bold tracking-[0.2em] transition-all duration-300 ease-out flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]"
             >
               <MessageSquare size={14} />
               {t("reviews.write_review")}
@@ -517,7 +517,7 @@ function ProductDetails() {
               reviews.map((review) => (
                 <div
                   key={review.id}
-                  className="bg-white p-8 rounded-4xl border border-black/5 shadow-sm hover:shadow-md transition-shadow"
+                  className="bg-white p-4 rounded-4xl border border-black/5 shadow-sm hover:shadow-md transition-shadow"
                 >
                   <div className="flex justify-between items-start mb-4">
                     <div>
