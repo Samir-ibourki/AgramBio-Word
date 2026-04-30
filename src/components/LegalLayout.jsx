@@ -50,7 +50,7 @@ function LegalLayout({ title, children }) {
             <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-bold block">
               {t("nav.legal_tag") || "AgraSouss Documents"}
             </span>
-            <h1 className="text-5xl md:text-6xl font-serif text-dark lowercase italic leading-tight">
+            <h1 className="text-5xl md:text-6xl font-serif text-dark lowercase  leading-tight">
               {title}
             </h1>
             <div className="w-12 h-0.5 bg-gold/30 mt-8" />

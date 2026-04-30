@@ -131,7 +131,7 @@ function Shop() {
           <div className="max-w-lg">
             <h1 className="text-5xl font-serif text-dark mb-4">
               {t("shop.title_prefix")}{" "}
-              <span className="text-gold italic">
+              <span className="text-gold">
                 {t("shop.title_highlight")}
               </span>
             </h1>
@@ -280,19 +280,19 @@ function Shop() {
 
             {loading ? (
               <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
-                <p className="font-serif italic text-xl text-dark/20">
+                <p className="font-serif text-xl text-dark/20">
                   Loading Shop...
                 </p>
               </div>
             ) : error ? (
               <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
-                <p className="font-serif italic text-xl text-red-500">
+                <p className="font-serif text-xl text-red-500">
                   Error loading products.
                 </p>
               </div>
             ) : filteredProducts.length === 0 ? (
               <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
-                <p className="font-serif italic text-xl text-dark/20">
+                <p className="font-serif text-xl text-dark/20">
                   {t("shop.no_results")}
                 </p>
               </div>

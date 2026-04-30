@@ -92,7 +92,7 @@ function Header() {
         <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6 h-12 flex justify-between items-center">
           <Link
             to="/"
-            className={`text-xl md:text-2xl font-serif font-bold tracking-tight italic shrink-0 transition-colors duration-500 ${textColor}`}
+            className={`text-xl md:text-2xl font-serif font-bold tracking-tight shrink-0 transition-colors duration-500 ${textColor}`}
           >
             Agram<span className="text-gold not-italic ml-1">Souss</span>
           </Link>

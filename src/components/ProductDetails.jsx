@@ -192,7 +192,7 @@ function ProductDetails() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#FCFAFA]">
         <div className="text-center">
-          <h2 className="text-3xl font-serif text-dark/40 mb-4 italic">
+          <h2 className="text-3xl font-serif text-dark/40 mb-4">
             Loading Product...
           </h2>
         </div>
@@ -547,7 +547,7 @@ function ProductDetails() {
                       )}
                     </span>
                   </div>
-                  <p className="text-dark/60 text-[1rem] leading-relaxed italic pr-4">
+                  <p className="text-dark/60 text-[1rem] leading-relaxed pr-4">
                     {review.comment}
                   </p>
                 </div>

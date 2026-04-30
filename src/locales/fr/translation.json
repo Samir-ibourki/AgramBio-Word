@@ -40,7 +40,10 @@
     "see_more": "Voir plus de produits",
     "add_to_cart": "Ajouter au panier",
     "sale": "Promo",
-    "organic": "Bio"
+    "organic": "Bio",
+    "loading": "Chargement des produits...",
+    "error": "Erreur lors du chargement des produits.",
+    "no_products": "Aucun produit trouvé dans cette catégorie."
   },
   "product_detail": {
     "back": "Retour à la boutique",

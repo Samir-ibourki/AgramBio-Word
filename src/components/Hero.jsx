@@ -76,7 +76,7 @@ const Hero = memo(function Hero() {
       />
       <div
         ref={overlayRef}
-        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.45),rgba(0,0,0,0.65))] backdrop-blur-[1.5px] "
+        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.45),rgba(0,0,0,0.65))] backdrop-blur-[1px] "
       />
 
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl w-full">
@@ -91,7 +91,7 @@ const Hero = memo(function Hero() {
           ref={titleRef}
           className="text-[clamp(3.2rem,8vw,7.5rem)] font-light text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] leading-[1.05] tracking-[-0.01em] perspective-[600px]"
         >
-          <span className="word inline-block italic font-light">
+          <span className="word inline-block font-light">
             {t("hero.title_1")}&nbsp;
           </span>
           <span className="word inline-block font-bold text-gold drop-shadow-[0_10px_40px_rgba(201,168,76,0.45)]">

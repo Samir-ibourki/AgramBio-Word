@@ -71,7 +71,7 @@ function About() {
               {t("about.story_p2")}
             </p>
             <div className="pt-4">
-              <div className="bg-primary/5 border-l-4 border-gold p-6 italic text-dark/70 font-serif">
+              <div className="bg-primary/5 border-l-4 border-gold p-6 text-dark/70 font-serif">
                 "{t("about.story_quote")}"
               </div>
             </div>
@@ -84,7 +84,7 @@ function About() {
                 alt="Our Team"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
-              <div className="absolute top-8 left-8 bg-primary text-cream px-6 py-3 rounded-2xl text-xl font-serif italic shadow-xl">
+              <div className="absolute top-8 left-8 bg-primary text-cream px-6 py-3 rounded-2xl text-xl font-serif shadow-xl">
                 {t("about.natural_badge")}
               </div>
             </div>
@@ -140,7 +140,7 @@ function About() {
               {t("about.mission_title")}
             </h2>
           </div>
-          <p className="text-xl text-dark/50 font-serif italic leading-relaxed">
+          <p className="text-xl text-dark/50 font-serif leading-relaxed">
             "{t("about.mission_quote")}"
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

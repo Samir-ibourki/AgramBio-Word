@@ -64,11 +64,11 @@ function Category() {
         </div>
 
         {loading ? (
-          <div className="py-10 text-center text-dark/40 font-serif italic">
+          <div className="py-10 text-center text-dark/40 font-serif">
             Loading Categories...
           </div>
         ) : error ? (
-          <div className="py-10 text-center text-red-500 font-serif italic">
+          <div className="py-10 text-center text-red-500 font-serif">
             Error loading categories.
           </div>
         ) : (
@@ -96,7 +96,7 @@ function Category() {
                 </div>
 
                 <div className="absolute inset-0 flex flex-col items-center justify-end pb-4 md:pb-12 px-4 z-10">
-                  <h3 className="text-white text-xs md:text-xl font-serif mb-1 translate-y-3 group-hover:translate-y-0 transition-transform duration-500 ease-out text-center lowercase italic">
+                  <h3 className="text-white text-xs md:text-xl font-serif mb-1 translate-y-3 group-hover:translate-y-0 transition-transform duration-500 ease-out text-center lowercase">
                     {cat.name}
                   </h3>
                   <div className="w-0 h-px bg-gold group-hover:w-8 transition-all duration-500" />

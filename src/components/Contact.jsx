@@ -128,7 +128,7 @@ function Contact() {
             </div>
             <p className="text-sm text-dark/60 leading-relaxed ml-9">
               {t("contact.hours_text")}{" "}
-              <span className="font-bold text-dark italic">
+              <span className="font-bold text-dark">
                 {BOUTIQUE_INFO.hours}
               </span>
               <br />
@@ -151,7 +151,7 @@ function Contact() {
                   <div className="text-dark/40 group-hover:text-dark transition-colors">
                     {social.icon}
                   </div>
-                  <span className="text-sm font-bold lowercase italic">
+                  <span className="text-sm font-bold lowercase">
                     {social.name}
                   </span>
                 </a>

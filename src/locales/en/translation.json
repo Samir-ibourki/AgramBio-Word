@@ -40,7 +40,10 @@
     "see_more": "See more products",
     "add_to_cart": "Add to Cart",
     "sale": "Sale",
-    "organic": "Organic"
+    "organic": "Organic",
+    "loading": "Loading products...",
+    "error": "Error loading products.",
+    "no_products": "No products found in this category."
   },
   "product_detail": {
     "back": "Back to boutique",

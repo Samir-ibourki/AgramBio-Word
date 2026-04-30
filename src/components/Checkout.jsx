@@ -157,7 +157,7 @@ function Checkout() {
               <h1 className="text-5xl font-serif text-dark mb-4">
                 {t("checkout.title")}
               </h1>
-              <p className="text-dark/40 text-sm italic font-serif">
+              <p className="text-dark/40 text-sm font-serif">
                 {t("checkout.subtitle")}
               </p>
             </div>
@@ -346,7 +346,7 @@ function Checkout() {
                   </span>
                 </div>
                 <div className="flex justify-between text-xl pt-6 border-t border-black/5 mt-6">
-                  <span className="font-serif italic font-bold text-dark">
+                  <span className="font-serif font-bold text-dark">
                     {t("cart.total")}
                   </span>
                   <span className="text-gold font-bold font-sans">

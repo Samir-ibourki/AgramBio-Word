@@ -70,7 +70,7 @@ function CartDrawer({ isOpen, onClose }) {
             {cart.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center opacity-40">
                 <ShoppingBag size={48} className="mb-4" />
-                <p className="font-serif italic">{t("cart.empty")}</p>
+                <p className="font-serif">{t("cart.empty")}</p>
                 <button
                   onClick={onClose}
                   className="mt-6 text-xs uppercase font-bold tracking-widest text-gold hover:underline"
@@ -155,7 +155,7 @@ function CartDrawer({ isOpen, onClose }) {
                   </span>
                 </div>
                 <div className="flex justify-between text-lg pt-4 border-t border-black/5 mt-4">
-                  <span className="font-serif italic font-bold text-dark">
+                  <span className="font-serif font-bold text-dark">
                     {t("cart.total")}
                   </span>
                   <span className="text-gold font-bold font-sans">

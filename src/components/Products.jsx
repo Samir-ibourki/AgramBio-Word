@@ -110,21 +110,20 @@ function Products() {
             </div>
           )}
 
-          <div className="w-12 h-0.5 bg-gold/30 mt-8 mx-auto" />
         </div>
 
         <div className="min-h-100">
           {loading ? (
-            <div className="py-20 text-center text-dark/40 font-serif italic">
-              Loading Products...
+            <div className="py-20 text-center text-dark/40 font-serif">
+              {t("products.loading")}
             </div>
           ) : error ? (
-            <div className="py-20 text-center text-red-500 font-serif italic">
-              Error loading products.
+            <div className="py-20 text-center text-red-500 font-serif">
+              {t("products.error")}
             </div>
           ) : products.length === 0 ? (
-            <div className="py-20 text-center text-dark/40 font-serif italic">
-              No products found in this category.
+            <div className="py-20 text-center text-dark/40 font-serif">
+              {t("products.no_products")}
             </div>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">

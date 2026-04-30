@@ -31,7 +31,7 @@ function Features() {
                 {feature.icon}
               </div>
               <div className="space-y-1">
-                <h3 className="text-dark font-serif text-lg font-bold lowercase italic">
+                <h3 className="text-dark font-serif text-lg font-bold lowercase">
                   {t(feature.titleKey)}
                 </h3>
                 <p className="text-dark/40 text-[0.7rem]  tracking-widest font-semibold leading-relaxed max-w-[200px] mx-auto lg:text-[0.8rem]">
