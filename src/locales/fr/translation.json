@@ -219,7 +219,10 @@
     "no_reviews": "Aucun avis pour le moment. Soyez le premier à partager votre expérience !",
     "pending_approval": "Votre avis a été ajouté avec succès !",
     "average_rating": "Note moyenne",
-    "based_on": "Basé sur {{count}} avis"
+    "based_on": "Basé sur {{count}} avis",
+    "satisfaction_quote": "La satisfaction de nos clients est notre plus belle récompense",
+    "submitting": "Envoi...",
+    "thank_you": "Merci pour votre avis !"
   },
   "legal": {
     "privacy": {

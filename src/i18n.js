@@ -15,7 +15,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'ar',
+    lng: localStorage.getItem('i18nextLng') || 'ar',
     fallbackLng: 'fr',
     interpolation: {
       escapeValue: false

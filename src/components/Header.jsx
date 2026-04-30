@@ -39,6 +39,7 @@ function Header() {
 
   const changeLanguage = (code) => {
     i18n.changeLanguage(code);
+    localStorage.setItem("i18nextLng", code);
     setShowLang(false);
     setIsOpen(false);
   };

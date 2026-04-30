@@ -219,7 +219,10 @@
     "no_reviews": "No reviews yet. Be the first to share your experience!",
     "pending_approval": "Your review has been added successfully!",
     "average_rating": "Average Rating",
-    "based_on": "Based on {{count}} reviews"
+    "based_on": "Based on {{count}} reviews",
+    "satisfaction_quote": "Our customers' satisfaction is our greatest reward",
+    "submitting": "Sending...",
+    "thank_you": "Thank you for your review!"
   },
   "legal": {
     "privacy": {

@@ -219,7 +219,10 @@
     "no_reviews": "لا توجد آراء بعد. كن أول من يشارك تجربته!",
     "pending_approval": "تمت إضافة تقييمك بنجاح!",
     "average_rating": "متوسط التقييم",
-    "based_on": "بناءً على {{count}} تقييمات"
+    "based_on": "بناءً على {{count}} تقييمات",
+    "satisfaction_quote": "رضا زبنائنا هو أجمل مكافأة لنا",
+    "submitting": "جاري الإرسال...",
+    "thank_you": "شكراً لك على تقييمك!"
   },
   "legal": {
     "privacy": {
