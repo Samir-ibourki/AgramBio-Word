@@ -9,8 +9,8 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
 
-const Category = lazy(() => import("./components/Category"));
-const Products = lazy(() => import("./components/Products"));
+import Category from "./components/Category";
+import Products from "./components/Products";
 const Shop = lazy(() => import("./components/Shop"));
 const ProductDetails = lazy(() => import("./components/ProductDetails"));
 const Checkout = lazy(() => import("./components/Checkout"));
@@ -24,84 +24,55 @@ const NotFound = lazy(() => import("./components/NotFound"));
 
 import { Helmet } from "react-helmet-async";
 
+import { useQuery } from "@apollo/client/react";
+import { getCategories, getProducts } from "./api/queries";
+
 const queryClient = new QueryClient();
 
 function App() {
+  useQuery(getCategories);
+  useQuery(getProducts, { variables: { first: 8 } });
+
   return (
     <>
      <Helmet>
         <title>AgramBio | Produits Bio et Naturels Premium</title>
-        <meta name="description" content="Découvrez la richesse de la nature chez AgramBio. Miels purs, Amlou traditionnel, et huiles cosmétiques certifiées." />
-        <meta name="keywords" content="bio, miel naturel, amlou maroc, huiles essentielles, agrambio" />
-        <meta property="og:title" content="AgramBio | Produits Bio & Terroir Marocain" />
-        <meta property="og:description" content="Le meilleur de la nature livré chez vous. Miels et huiles 100% purs." />
-     </Helmet>
-     <QueryClientProvider client={queryClient}>
+        <meta name="description" content="Découvrez le meilleur des produits naturels et bio du Maroc. Miel pur, Amlou traditionnel et huiles essentielles d'exception." />
+      </Helmet>
+    <QueryClientProvider client={queryClient}>
       <AnimationProvider>
-        <ScrollToTop />
-        <Header/>
-        <main>
-      
+        <div className="min-h-screen bg-accent selection:bg-gold/30">
+          <ScrollToTop />
+          <Header />
           <Routes>
-            <Route path="/" element={
-              <>
-                <Hero />
-                <Category />
-                <Products />
-                <Features />
-              </>
-            } />
-            
-            <Route path="/shop" element={
-              <div className="pt-20">
-                <Shop />
-              </div>
-            } />
-
-           <Route path="/checkout" element={
-              <Checkout />
-            } />
-
-
-            <Route path="/category/:slug" element={
-              <div className="pt-20">
-                <Products />
-              </div>
-            } />
-
-            <Route path="/product/:id" element={
-              <div className="pt-20">
-                <ProductDetails />
-              </div>
-            } />
-
-           <Route path="/contact" element={
-              <div className="pt-20">
-                <Contact />
-              </div>
-            } />
-
-            <Route path="/about" element={
-              <div className="pt-16">
-                <About />
-              </div>
-            } />
-
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<TermsOfService />} />
+            <Route
+              path="/"
+              element={
+                <main>
+                  <Hero />
+                  <Category />
+                  <Products />
+                </main>
+              }
+            />
+            <Route path="/about" element={<About />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/shop/:slug" element={<Shop />} />
+            <Route path="/product/:slug" element={<ProductDetails />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<NotFound />} />
-
-
-          </Routes>  
-
-            
-      </main>
-      <Footer />
+          </Routes>
+          <Footer />
+        </div>
       </AnimationProvider>
     </QueryClientProvider>
     </>
-  )
+  );
 }
 
 export default App;
