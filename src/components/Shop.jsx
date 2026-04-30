@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 import { useQuery } from "@apollo/client/react";
 import { getProducts } from "../api/queries";
 import { mapProducts } from "../utils/mapper";
+import { SkeletonGrid } from "./Skeleton";
 
 function Shop() {
   const { t, i18n } = useTranslation();
@@ -55,6 +56,7 @@ function Shop() {
 
   const { data, loading, error } = useQuery(getProducts, {
     variables: { first: 50 },
+    fetchPolicy: "cache-and-network",
   });
   const allLiveProducts = useMemo(
     () => mapProducts(data?.products?.nodes),
@@ -278,13 +280,9 @@ function Shop() {
               </div>
             </div>
 
-            {loading ? (
-              <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
-                <p className="font-serif text-xl text-dark/20">
-                  Loading Shop...
-                </p>
-              </div>
-            ) : error ? (
+            {loading && !data ? (
+              <SkeletonGrid type="product" count={6} gridClass="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 lg:gap-8" />
+            ) : error && !data ? (
               <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
                 <p className="font-serif text-xl text-red-500">
                   Error loading products.

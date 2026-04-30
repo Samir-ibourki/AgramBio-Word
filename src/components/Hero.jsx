@@ -26,7 +26,7 @@ const Hero = memo(function Hero() {
       gsap.fromTo(
         bgRef.current,
         { scale: 1.1 },
-        { scale: 1, duration: 6, ease: "power1.out" },
+        { scale: 1, duration: 2, ease: "power1.out" },
       );
 
       tl.from(overlayRef.current, { opacity: 0, duration: 1.5 }, 0);
@@ -57,8 +57,8 @@ const Hero = memo(function Hero() {
       tl.fromTo(
         btnsRef.current.children,
         { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, stagger: 0.15, duration: 0.7 },
-        2.1,
+        { opacity: 1, y: 0, stagger: 0.15, duration: 0.2 },
+        1.8,
       );
     },
     { scope: containerRef, dependencies: [isReady] },

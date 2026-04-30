@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useQuery } from "@apollo/client/react";
 import { getProducts } from "../api/queries";
 import { mapProducts } from "../utils/mapper";
+import { SkeletonGrid } from "./Skeleton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,6 +26,7 @@ function Products() {
 
   const { data, loading, error } = useQuery(getProducts, {
     variables: { first: 20 },
+    fetchPolicy: "cache-and-network",
   });
   const allLiveProducts = useMemo(
     () => mapProducts(data?.products?.nodes),
@@ -46,7 +48,7 @@ function Products() {
 
   useGSAP(
     () => {
-      if (loading || products.length === 0) return;
+      if ((loading && !data) || products.length === 0) return;
 
       const q = gsap.utils.selector(containerRef);
       gsap.from(q(".title-anim"), {
@@ -113,11 +115,9 @@ function Products() {
         </div>
 
         <div className="min-h-100">
-          {loading ? (
-            <div className="py-20 text-center text-dark/40 font-serif">
-              {t("products.loading")}
-            </div>
-          ) : error ? (
+          {loading && !data ? (
+            <SkeletonGrid type="product" count={4} />
+          ) : error && !data ? (
             <div className="py-20 text-center text-red-500 font-serif">
               {t("products.error")}
             </div>

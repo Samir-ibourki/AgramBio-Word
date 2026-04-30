@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ShoppingCart, Globe, Menu, X, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -13,6 +13,7 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showLang, setShowLang] = useState(false);
+  const langRef = useRef(null);
 
   const isRTL = i18n.language === "ar";
 
@@ -42,37 +43,53 @@ function Header() {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (langRef.current && !langRef.current.contains(event.target)) {
+        setShowLang(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   useGSAP(
     () => {
       if (showLang) {
         gsap.fromTo(
           ".lang-dropdown",
-          { opacity: 0, y: 10, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power2.out" },
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
         );
       }
     },
     { dependencies: [showLang] },
   );
 
+  const mobileMenuRef = useRef(null);
+
   useGSAP(
     () => {
       if (isOpen) {
         gsap.fromTo(
           ".mobile-nav-el",
-          { opacity: 0, y: 20 },
+          { opacity: 0, y: 30, scale: 0.95 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
+            scale: 1,
+            duration: 0.5,
             stagger: 0.1,
-            ease: "power3.out",
+            ease: "back.out(1.7)",
             delay: 0.2,
-          },
+          }
         );
+      } else {
+        // Reset state for next time to prevent "messy" overlapping
+        gsap.set(".mobile-nav-el", { opacity: 0, y: 30, scale: 0.95 });
       }
     },
-    { dependencies: [isOpen] },
+    { scope: mobileMenuRef, dependencies: [isOpen] }
   );
 
   const headerBg =
@@ -110,10 +127,9 @@ function Header() {
           </nav>
 
           <div className="flex items-center gap-4 md:gap-6">
-            <div className="relative hidden lg:block">
+            <div ref={langRef} className="relative hidden lg:block">
               <button
                 onClick={() => setShowLang(!showLang)}
-                onMouseEnter={() => setShowLang(true)}
                 className={`flex items-center gap-1 transition-colors duration-500 cursor-pointer text-xs font-bold ${textColor} hover:text-gold`}
               >
                 <Globe size={18} />
@@ -125,7 +141,6 @@ function Header() {
               </button>
               {showLang && (
                 <div
-                  onMouseLeave={() => setShowLang(false)}
                   className={`lang-dropdown absolute top-full ${isRTL ? "left-0" : "right-0"} mt-4 w-32 bg-dark/95 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-110`}
                 >
                   <div className="p-2 flex flex-col gap-1">
@@ -156,7 +171,7 @@ function Header() {
             </button>
 
             <button
-              className={`lg:hidden cursor-pointer p-1 z-110ransition-colors duration-500 ${textColor}`}
+              className={`lg:hidden cursor-pointer p-1 z-110 transition-colors duration-500 ${textColor}`}
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -166,14 +181,15 @@ function Header() {
       </header>
 
       <div
+        ref={mobileMenuRef}
         className={`fixed inset-0 bg-dark z-90 flex flex-col items-center justify-center transition-all duration-500 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
       >
-        <nav className="flex flex-col items-center mt-20 gap-8 mb-12">
+        <nav className="flex flex-col items-center mt-20 gap-6 md:gap-8 mb-12">
           {NAV_LINKS.map((item) => (
             <Link
               key={item.nameKey}
               to={item.path}
-              className="mobile-nav-el text-cream hover:text-gold text-3xl font-serif"
+              className="mobile-nav-el text-cream hover:text-gold text-3xl font-serif py-1"
               onClick={() => setIsOpen(false)}
             >
               {t(item.nameKey)}

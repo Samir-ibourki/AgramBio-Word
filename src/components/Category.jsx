@@ -6,13 +6,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client/react";
 import { getCategories } from "../api/queries";
+import { SkeletonGrid } from "./Skeleton";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Category() {
   const { t } = useTranslation();
   const containerRef = useRef(null);
-  const { data, loading, error } = useQuery(getCategories);
+  const { data, loading, error } = useQuery(getCategories, {
+    fetchPolicy: "cache-and-network",
+  });
 
   useGSAP(
     () => {
@@ -63,11 +66,9 @@ function Category() {
           </h2>
         </div>
 
-        {loading ? (
-          <div className="py-10 text-center text-dark/40 font-serif">
-            Loading Categories...
-          </div>
-        ) : error ? (
+        {loading && !data ? (
+          <SkeletonGrid type="category" count={4} gridClass="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6" />
+        ) : error && !data ? (
           <div className="py-10 text-center text-red-500 font-serif">
             Error loading categories.
           </div>

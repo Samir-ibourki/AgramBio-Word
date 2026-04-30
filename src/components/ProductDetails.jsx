@@ -23,6 +23,7 @@ import { mapProduct, mapProducts } from "../utils/mapper";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Helmet } from "react-helmet-async";
+import { ProductDetailSkeleton, SkeletonGrid } from "./Skeleton";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -39,12 +40,16 @@ function ProductDetails() {
     data: productData,
     loading: productLoading,
     error: productError,
-  } = useQuery(getProductById, { variables: { id: id } });
+  } = useQuery(getProductById, { 
+    variables: { id: id },
+    fetchPolicy: "cache-and-network" 
+  });
 
   const { data: reviewsData } = useQuery(getProductReviews, {
     variables: { id: id },
     skip: !id,
     errorPolicy: "all",
+    fetchPolicy: "cache-and-network",
   });
 
   const product = useMemo(
@@ -64,6 +69,7 @@ function ProductDetails() {
       categoryIn: product?.categorySlug ? [product.categorySlug] : undefined,
     },
     skip: !product?.categorySlug,
+    fetchPolicy: "cache-and-network",
   });
 
   const relatedProducts = useMemo(() => {
@@ -188,14 +194,10 @@ function ProductDetails() {
     { scope: containerRef, dependencies: [product?.id, productLoading] }
   );
 
-  if (productLoading) {
+  if (productLoading && !productData) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FCFAFA]">
-        <div className="text-center">
-          <h2 className="text-3xl font-serif text-dark/40 mb-4">
-            Loading Product...
-          </h2>
-        </div>
+      <div className="min-h-screen bg-[#FCFAFA] pt-32">
+        <ProductDetailSkeleton />
       </div>
     );
   }
