@@ -29,19 +29,19 @@ function LegalLayout({ title, children }) {
   );
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-[#FCFAFA] pt-32 pb-20">
-      <div className="max-w-4xl mx-auto px-6">
+    <div ref={containerRef} className="min-h-screen bg-[#FCFAFA] pt-6 md:pt-10 pb-10">
+      <div className="max-w-4xl mx-auto px-4 md:px-6">
         {/* Header Section */}
-        <div className="legal-header mb-16">
+        <div className="legal-header mb-12 md:mb-16">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-dark/40 hover:text-gold transition-colors group mb-10"
+            className="inline-flex items-center gap-2 text-dark/40 hover:text-gold transition-colors group mb-8 md:mb-10"
           >
             <ChevronLeft
               size={16}
               className="transition-transform group-hover:-translate-x-1"
             />
-            <span className="text-[10px] uppercase font-bold tracking-[0.2em]">
+            <span className="text-[10px] font-bold tracking-[0.2em]">
               {t("product_detail.back")}
             </span>
           </Link>
@@ -50,15 +50,15 @@ function LegalLayout({ title, children }) {
             <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-bold block">
               {t("nav.legal_tag") || "AgraSouss Documents"}
             </span>
-            <h1 className="text-5xl md:text-6xl font-serif text-dark lowercase  leading-tight">
+            <h1 className="text-4xl md:text-6xl font-serif text-dark lowercase  leading-tight">
               {title}
             </h1>
-            <div className="w-12 h-0.5 bg-gold/30 mt-8" />
+            <div className="w-12 h-0.5 bg-gold/30 mt-6 md:mt-8" />
           </div>
         </div>
 
         {/* Content Section */}
-        <div className="legal-content bg-white border border-black/5 rounded-[40px] p-8 md:p-16 shadow-sm shadow-dark/2">
+        <div className="legal-content bg-white border border-black/5 rounded-3xl md:rounded-[40px] p-5 md:p-16 shadow-sm shadow-dark/2">
           <div className="prose prose-sm md:prose-base max-w-none prose-serif prose-headings:font-serif prose-headings:text-dark prose-p:text-dark/70 prose-li:text-dark/70">
             {children}
           </div>

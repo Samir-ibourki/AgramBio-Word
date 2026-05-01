@@ -120,7 +120,7 @@ function Shop() {
     sortOptions.find((o) => o.value === sortBy)?.labelKey || "shop.newest";
 
   return (
-    <div className="min-h-screen bg-[#FCFAFA] pb-24 pt-10">
+    <div className="min-h-screen bg-[#FCFAFA] pb-24 pt-4 md:pt-10">
       <Helmet>
         <title>Boutique Premium | AgramBio</title>
         <meta

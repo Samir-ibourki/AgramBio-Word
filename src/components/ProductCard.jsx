@@ -60,7 +60,7 @@ function ProductCard({ product }) {
       <div className="px-3 md:px-6 pb-4 md:pb-6 mt-auto">
         <button 
           onClick={handleAddToCart}
-          className="w-full py-2.5 md:py-3 cursor-pointer bg-dark text-cream text-[11px] md:text-[1rem] font-bold tracking-widest 
+          className="w-full py-2.5 md:py-3 cursor-pointer bg-dark text-cream text-xs md:text-sm font-bold tracking-widest 
         rounded-full transition-all duration-300 ease-linear hover:bg-gold hover:text-dark shadow-md hover:shadow-lg "
         >
           {t('products.add_to_cart')}

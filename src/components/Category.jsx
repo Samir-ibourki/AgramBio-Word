@@ -22,24 +22,41 @@ function Category() {
       if (!data) return;
 
       const q = gsap.utils.selector(containerRef);
-      gsap.from(q(".title-anim"), {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        scrollTrigger: { trigger: q(".title-anim"), start: "top 90%" },
-      });
+      gsap.fromTo(q(".title-anim"), 
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          force3D: true,
+          scrollTrigger: { 
+            trigger: q(".title-anim"), 
+            start: "top 90%",
+            once: true
+          },
+        }
+      );
 
       if (q(".card").length > 0) {
         gsap.fromTo(
           q(".card"),
-          { y: 100, opacity: 0 },
+          { y: 40, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 0.2,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: { trigger: q(".card"), start: "top 90%" },
+            duration: 0.8,
+            stagger: {
+              each: 0.1,
+              ease: "power2.inOut"
+            },
+            ease: "power3.out",
+            force3D: true,
+            scrollTrigger: { 
+              trigger: containerRef.current, 
+              start: "top 85%",
+              once: true
+            },
           },
         );
       }
@@ -55,7 +72,7 @@ function Category() {
     >
       <div className="max-w-5xl lg:max-w-[85vw] mx-auto px-6">
         <div className="title-anim flex flex-col items-center text-center mb-6 md:mb-10">
-          <span className="text-gold text-[8px] md:text-[10px] tracking-[0.4em] uppercase font-bold mb-2 md:mb-4">
+          <span className="text-gold text-[0.5rem] md:text-[0.8rem] tracking-[0.2em] font-bold mb-3">
             {t("category.tag")}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-dark italic leading-tight">
@@ -80,8 +97,8 @@ function Category() {
                 to={`/shop?category=${cat.slug}`}
                 className="card group relative aspect-3/3 md:aspect-4/5 overflow-hidden rounded-xl md:rounded-2xl cursor-pointer 
                         bg-white shadow-[0_5px_15px_rgba(0,0,0,0.03)] 
-                           hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] 
-                           transition-all duration-700 block"
+                        hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] 
+                        !transition-shadow duration-500 block will-change-[transform,opacity]"
               >
                 <div className="absolute inset-0">
                   <img

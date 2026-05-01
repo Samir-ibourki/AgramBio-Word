@@ -136,7 +136,7 @@ function Checkout() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FCFAFA] pt-32 pb-24">
+    <div className="min-h-screen bg-[#FCFAFA] pt-10 pb-20">
       <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6">
         <Link
           to="/shop"
@@ -266,7 +266,7 @@ function Checkout() {
               <button
                 type="submit"
                 disabled={isProcessing}
-                className="w-full bg-dark text-cream py-6 rounded-full font-bold tracking-[0.3em] text-[15px] hover:bg-gold hover:text-dark hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] shadow-xl shadow-dark/10 transition-all duration-300 ease-out disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-dark text-cream py-4 md:py-5 rounded-full font-bold tracking-widest text-xs md:text-sm hover:bg-gold hover:text-dark hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] shadow-xl shadow-dark/10 transition-all duration-500 ease-out disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isProcessing ? (
                   <span className="flex items-center justify-center gap-3">
@@ -316,14 +316,14 @@ function Checkout() {
                       />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-xs font-bold text-dark">
+                      <h4 className="text-xl font-bold text-dark">
                         {getName(item.name)}
                       </h4>
                       <div className="flex justify-between items-center mt-2">
-                        <span className="text-[10px] text-dark/40 uppercase tracking-widest font-bold">
+                        <span className="text-[1rem] text-dark/40 uppercase tracking-widest font-bold">
                           {t("checkout.qty")}: {item.quantity}
                         </span>
-                        <span className="text-xs font-sans font-bold text-gold">
+                        <span className="text-xl font-sans font-bold text-gold">
                           {item.price * item.quantity} MAD
                         </span>
                       </div>
@@ -357,7 +357,7 @@ function Checkout() {
 
               <div className="mt-8 flex items-center justify-center gap-3 py-3 border border-black/5 rounded-xl border-dashed">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-[1rem] uppercase font-bold tracking-widest text-dark/40">
+                <span className="text-[1rem]  font-bold tracking-widest text-dark/40">
                   {t("checkout.available")}
                 </span>
               </div>

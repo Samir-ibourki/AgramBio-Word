@@ -2,8 +2,8 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimationProvider,  } from "./context/AnimationContext";
-import { Routes, Route } from "react-router-dom";
-import { lazy } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -32,6 +32,8 @@ const queryClient = new QueryClient();
 function App() {
   useQuery(getCategories);
   useQuery(getProducts, { variables: { first: 8 } });
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   return (
     <>
@@ -44,17 +46,19 @@ function App() {
         <div className="min-h-screen bg-accent selection:bg-gold/30">
           <ScrollToTop />
           <Header />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <main>
-                  <Hero />
-                  <Category />
-                  <Products />
-                </main>
-              }
-            />
+          {!isHomePage && <div className="h-16 md:h-18" />}
+          <Suspense fallback={null}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <main>
+                    <Hero />
+                    <Category />
+                    <Products />
+                  </main>
+                }
+              />
             <Route path="/about" element={<About />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/shop/:slug" element={<Shop />} />
@@ -67,6 +71,7 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
           <Footer />
         </div>
       </AnimationProvider>

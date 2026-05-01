@@ -13,7 +13,7 @@ export const LANGUAGES = [
 ];
 
 export const LEGAL_LINKS = [
-  { nameKey: "footer.privacy", path: "/privacy" },
-  { nameKey: "footer.terms", path: "/terms" },
+  { nameKey: "footer.privacy", path: "/privacy-policy" },
+  { nameKey: "footer.terms", path: "/terms-of-service" },
   { nameKey: "footer.faq", path: "/faq" },
 ];

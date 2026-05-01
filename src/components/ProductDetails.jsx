@@ -218,7 +218,7 @@ function ProductDetails() {
   }
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-[#FCFAFA] py-5">
+    <div ref={containerRef} className="min-h-screen bg-[#FCFAFA] pt-8 pb-10">
       <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6 mb-10">
         <Link
           to="/shop"
@@ -350,7 +350,7 @@ function ProductDetails() {
             </div>
             <button
               onClick={handleAddToCart}
-              className="w-[20rem] cursor-pointer flex items-center justify-center gap-3 bg-dark text-cream py-5 rounded-full hover:bg-gold hover:text-dark hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out font-bold  tracking-widest text-xs shadow-xl"
+              className="flex-1 md:flex-none md:px-12 cursor-pointer flex items-center justify-center gap-3 bg-dark text-cream py-4 rounded-full hover:bg-gold hover:text-dark hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out font-bold tracking-widest text-xs shadow-xl"
             >
               <ShoppingBag size={18} /> {t("product_detail.add_to_cart")}
             </button>

@@ -26,7 +26,7 @@ function Contact() {
   return (
     <div ref={containerRef} className="min-h-screen bg-[#F8F9FA] pb-24">
       {/* header section */}
-      <div className="pt-20 pb-16 page-header text-center max-w-7xl mx-auto px-6">
+      <div className="py-10 page-header text-center max-w-7xl mx-auto px-6">
         <h1 className="text-4xl md:text-5xl font-serif text-dark mb-4">
           {t("contact.title")}
         </h1>

@@ -48,40 +48,56 @@ function Products() {
 
   useGSAP(
     () => {
-      if ((loading && !data) || products.length === 0) return;
+      if (!data) return;
 
       const q = gsap.utils.selector(containerRef);
-      gsap.from(q(".title-anim"), {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        scrollTrigger: { trigger: q(".title-anim"), start: "top 90%" },
-      });
+      
+      // Animate title section
+      gsap.fromTo(q(".title-anim"), 
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          force3D: true,
+          scrollTrigger: { 
+            trigger: q(".title-anim"), 
+            start: "top 90%",
+            once: true
+          },
+        }
+      );
 
+      // Animate product cards
       if (q(".card").length > 0) {
         gsap.fromTo(
           q(".card"),
-          { y: 100, opacity: 0 },
+          { y: 50, opacity: 0 },
           {
             y: 0,
             opacity: 1,
             duration: 0.8,
-            stagger: 0.15,
-            ease: "power2.out",
-            overwrite: "auto",
-            scrollTrigger: { trigger: q(".card"), start: "top 90%" },
+            stagger: 0.1,
+            ease: "power3.out",
+            force3D: true,
+            scrollTrigger: { 
+              trigger: q(".card"), 
+              start: "top 90%",
+              once: true
+            },
           },
         );
       }
     },
-    { scope: containerRef, dependencies: [products, loading] },
+    { scope: containerRef, dependencies: [data] },
   );
 
   return (
-    <section id="products" ref={containerRef} className="py-20 bg-white">
+    <section id="products" ref={containerRef} className=" py-14 md:py-20 bg-white">
       <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6">
         <div className="title-anim mb-12 flex flex-col items-center text-center">
-          <span className="text-gold text-[0.8rem] tracking-[0.4em] uppercase font-bold mb-4">
+          <span className="text-gold text-[0.5rem] md:text-[0.8rem] tracking-[0.2em] font-bold mb-3">
             {t("products.tag")}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif text-dark lowercase italic leading-tight mb-2">
@@ -96,7 +112,7 @@ function Products() {
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <button
                 onClick={() => setActiveTab("all")}
-                className={`px-6 py-2 text-[0.8rem] lg:text-[0.8rem]  md:text-[1rem] font-bold tracking-widest rounded-full transition-all duration-300 border ${activeTab === "all" ? "bg-dark text-cream border-dark" : "bg-transparent text-dark/40 border-black/5 hover:border-gold/30 hover:text-gold"}`}
+                className={`px-6 py-2.5 text-xs md:text-sm font-bold tracking-widest rounded-full transition-all duration-300 border ${activeTab === "all" ? "bg-dark text-cream border-dark" : "bg-transparent text-dark/40 border-black/5 hover:border-gold/30 hover:text-gold"}`}
               >
                 {t("shop.all_products") || "Tout"}
               </button>
@@ -104,7 +120,7 @@ function Products() {
                 <button
                   key={cat.slug}
                   onClick={() => setActiveTab(cat.slug)}
-                  className={`px-6 py-2 text-[0.8rem] lg:text-[0.8rem] md:text-[1rem]  font-bold tracking-widest rounded-full transition-all duration-300 border ${activeTab === cat.slug ? "bg-dark text-cream border-dark" : "bg-transparent text-dark/40 border-black/5 hover:border-gold/30 hover:text-gold"}`}
+                  className={`px-6 py-2.5 text-xs md:text-sm font-bold tracking-widest rounded-full transition-all duration-300 border ${activeTab === cat.slug ? "bg-dark text-cream border-dark" : "bg-transparent text-dark/40 border-black/5 hover:border-gold/30 hover:text-gold"}`}
                 >
                   {cat.name}
                 </button>
@@ -128,7 +144,7 @@ function Products() {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
               {products.map((product) => (
-                <div key={product.id} className="card">
+                <div key={product.id} className="card !transition-none will-change-[transform,opacity]">
                   <ProductCard product={product} />
                 </div>
               ))}
@@ -141,7 +157,7 @@ function Products() {
             to="/shop"
             className="group relative px-10 py-4 bg-dark text-cream rounded-full cursor-pointer overflow-hidden transition-all ease-linear duration-400 hover:pr-14 shadow-xl"
           >
-            <span className="relative z-10 text-[0.8rem] md:text-[1rem]  font-bold tracking-[0.2em]">
+            <span className="relative z-10 text-xs md:text-sm font-bold tracking-widest">
               {t("products.see_more")}
             </span>
            

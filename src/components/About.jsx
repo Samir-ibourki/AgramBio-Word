@@ -37,7 +37,7 @@ function About() {
   return (
     <div ref={containerRef} className="bg-accent overflow-hidden">
       {/* hero section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-primary text-white py-24">
+      <section className="relative min-h-[50vh] flex items-center justify-center bg-primary text-white py-10">
         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]" />
         <div className="max-w-4xl mx-auto px-6 text-center hero-text relative z-10">
           <span className="inline-block px-4 py-1 rounded-full border border-gold/30 text-gold text-[10px] uppercase tracking-[0.3em] font-bold mb-8">
