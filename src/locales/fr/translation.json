@@ -43,7 +43,8 @@
     "organic": "Bio",
     "loading": "Chargement des produits...",
     "error": "Erreur lors du chargement des produits.",
-    "no_products": "Aucun produit trouvé dans cette catégorie."
+    "no_products": "Aucun produit trouvé dans cette catégorie.",
+    "currency": "MAD"
   },
   "product_detail": {
     "back": "Retour à la boutique",

@@ -291,10 +291,10 @@ function ProductDetails() {
               {getName(product.name)}
             </h1>
             <div className="info-item flex items-center gap-4 text-2xl font-serif text-gold">
-              <span className="font-bold font-sans">{product.price} MAD</span>
+              <span className="font-bold font-sans">{product.price} {t('products.currency')}</span>
               {product.originalPrice && (
                 <span className="text-dark/20 font-semibold line-through text-lg font-sans">
-                  {product.originalPrice} MAD
+                  {product.originalPrice} {t('products.currency')}
                 </span>
               )}
             </div>
@@ -507,10 +507,10 @@ function ProductDetails() {
           <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
               <div>
-                <span className="text-gold text-[15px] font-bold uppercase tracking-[0.3em] mb-4 block">
+                <span className="text-gold text-[0.7rem] font-bold uppercase tracking-[0.3em] mb-4 block">
                   {t("product_detail.related_tag")}
                 </span>
-                <h2 className="text-4xl md:text-5xl font-serif text-dark lowercase italic">
+                <h2 className="text-4xl md:text-5xl font-serif text-dark lowercase ">
                   {t("product_detail.related_title")}
                 </h2>
               </div>

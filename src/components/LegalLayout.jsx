@@ -47,9 +47,7 @@ function LegalLayout({ title, children }) {
           </Link>
 
           <div className="space-y-4">
-            <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-bold block">
-              {t("nav.legal_tag") || "AgraSouss Documents"}
-            </span>
+            
             <h1 className="text-4xl md:text-6xl font-serif text-dark lowercase  leading-tight">
               {title}
             </h1>

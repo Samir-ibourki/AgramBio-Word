@@ -129,7 +129,7 @@ function CartDrawer({ isOpen, onClose }) {
                         </button>
                       </div>
                       <p className="text-sm font-bold text-gold">
-                        {item.price * item.quantity} MAD
+                        {item.price * item.quantity} {t("products.currency")}
                       </p>
                     </div>
                   </div>
@@ -145,13 +145,13 @@ function CartDrawer({ isOpen, onClose }) {
                 <div className="flex justify-between text-sm">
                   <span className="text-dark/40">{t("cart.subtotal")}</span>
                   <span className="text-dark font-bold font-sans">
-                    {subtotal} MAD
+                    {subtotal} {t("products.currency")}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-dark/40">{t("cart.shipping")}</span>
                   <span className="text-dark font-bold font-sans">
-                    {shippingFee} MAD
+                    {shippingFee} {t("products.currency")}
                   </span>
                 </div>
                 <div className="flex justify-between text-lg pt-4 border-t border-black/5 mt-4">
@@ -159,7 +159,7 @@ function CartDrawer({ isOpen, onClose }) {
                     {t("cart.total")}
                   </span>
                   <span className="text-gold font-bold font-sans">
-                    {total} MAD
+                    {total} {t("products.currency")}
                   </span>
                 </div>
               </div>

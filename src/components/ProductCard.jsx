@@ -49,9 +49,9 @@ function ProductCard({ product }) {
           </h3>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-3">
-            <span className="text-dark font-bold text-sm md:text-lg">{product.price} MAD</span>
+            <span className="text-dark font-bold text-sm md:text-lg">{product.price} {t('products.currency')}</span>
             {product.originalPrice && (
-              <span className="text-dark/30 line-through text-[10px] md:text-sm">{product.originalPrice} MAD</span>
+              <span className="text-dark/30 line-through text-[10px] md:text-sm">{product.originalPrice} {t('products.currency')}</span>
             )}
           </div>
         </div>

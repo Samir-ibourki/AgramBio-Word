@@ -43,7 +43,8 @@
     "organic": "Organic",
     "loading": "Loading products...",
     "error": "Error loading products.",
-    "no_products": "No products found in this category."
+    "no_products": "No products found in this category.",
+    "currency": "MAD"
   },
   "product_detail": {
     "back": "Back to boutique",

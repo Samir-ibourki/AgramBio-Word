@@ -324,7 +324,7 @@ function Checkout() {
                           {t("checkout.qty")}: {item.quantity}
                         </span>
                         <span className="text-xl font-sans font-bold text-gold">
-                          {item.price * item.quantity} MAD
+                          {item.price * item.quantity} {t("products.currency")}
                         </span>
                       </div>
                     </div>
@@ -336,13 +336,13 @@ function Checkout() {
                 <div className="flex justify-between text-sm">
                   <span className="text-dark/40">{t("cart.subtotal")}</span>
                   <span className="text-dark font-bold font-sans">
-                    {subtotal} MAD
+                    {subtotal} {t("products.currency")}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-dark/40">{t("cart.shipping")}</span>
                   <span className="text-dark font-bold font-sans">
-                    {shippingFee} MAD
+                    {shippingFee} {t("products.currency")}
                   </span>
                 </div>
                 <div className="flex justify-between text-xl pt-6 border-t border-black/5 mt-6">
@@ -350,7 +350,7 @@ function Checkout() {
                     {t("cart.total")}
                   </span>
                   <span className="text-gold font-bold font-sans">
-                    {total} MAD
+                    {total} {t("products.currency")}
                   </span>
                 </div>
               </div>
