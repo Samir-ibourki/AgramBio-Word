@@ -26,7 +26,7 @@ function Contact() {
   return (
     <div ref={containerRef} className="min-h-screen bg-[#F8F9FA] pb-24">
       {/* header section */}
-      <div className="pt-20 pb-16 page-header text-center max-w-7xl mx-auto px-6">
+      <div className="py-10 page-header text-center max-w-7xl mx-auto px-6">
         <h1 className="text-4xl md:text-5xl font-serif text-dark mb-4">
           {t("contact.title")}
         </h1>
@@ -128,7 +128,7 @@ function Contact() {
             </div>
             <p className="text-sm text-dark/60 leading-relaxed ml-9">
               {t("contact.hours_text")}{" "}
-              <span className="font-bold text-dark italic">
+              <span className="font-bold text-dark">
                 {BOUTIQUE_INFO.hours}
               </span>
               <br />
@@ -151,7 +151,7 @@ function Contact() {
                   <div className="text-dark/40 group-hover:text-dark transition-colors">
                     {social.icon}
                   </div>
-                  <span className="text-sm font-bold lowercase italic">
+                  <span className="text-sm font-bold lowercase">
                     {social.name}
                   </span>
                 </a>

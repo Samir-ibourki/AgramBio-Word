@@ -7,14 +7,18 @@ import { Helmet } from "react-helmet-async";
 import { useQuery } from "@apollo/client/react";
 import { getProducts } from "../api/queries";
 import { mapProducts } from "../utils/mapper";
+import { SkeletonGrid } from "./Skeleton";
 
 function Shop() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [inputValue, setInputValue] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const selectedCategories = useMemo(() => {
+    const cat = searchParams.get("category");
+    return cat ? cat.split(",") : [];
+  }, [searchParams]);
   const [priceRange, setPriceRange] = useState(1000);
   // const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [sortBy, setSortBy] = useState("newest");
@@ -35,22 +39,24 @@ function Shop() {
     [],
   );
 
-  useEffect(() => {
-    const catParam = searchParams.get("category");
-    if (catParam && !selectedCategories.includes(catParam)) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setSelectedCategories([catParam]);
-    }
-  }, [searchParams, selectedCategories]);
-
   const toggleCategory = useCallback((slug) => {
-    setSelectedCategories((prev) =>
-      prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug],
-    );
-  }, []);
+    const current = searchParams.get("category") ? searchParams.get("category").split(",") : [];
+    const next = current.includes(slug)
+      ? current.filter((s) => s !== slug)
+      : [...current, slug];
+    
+    const newParams = new URLSearchParams(searchParams);
+    if (next.length > 0) {
+      newParams.set("category", next.join(","));
+    } else {
+      newParams.delete("category");
+    }
+    setSearchParams(newParams);
+  }, [searchParams, setSearchParams]);
 
   const { data, loading, error } = useQuery(getProducts, {
     variables: { first: 50 },
+    fetchPolicy: "cache-and-network",
   });
   const allLiveProducts = useMemo(
     () => mapProducts(data?.products?.nodes),
@@ -114,7 +120,7 @@ function Shop() {
     sortOptions.find((o) => o.value === sortBy)?.labelKey || "shop.newest";
 
   return (
-    <div className="min-h-screen bg-[#FCFAFA] pb-24 pt-10">
+    <div className="min-h-screen bg-[#FCFAFA] pb-24 pt-4 md:pt-10">
       <Helmet>
         <title>Boutique Premium | AgramBio</title>
         <meta
@@ -127,7 +133,7 @@ function Shop() {
           <div className="max-w-lg">
             <h1 className="text-5xl font-serif text-dark mb-4">
               {t("shop.title_prefix")}{" "}
-              <span className="text-gold italic">
+              <span className="text-gold">
                 {t("shop.title_highlight")}
               </span>
             </h1>
@@ -212,7 +218,9 @@ function Shop() {
               priceRange < 1000) && (
               <button
                 onClick={() => {
-                  setSelectedCategories([]);
+                  const newParams = new URLSearchParams(searchParams);
+                  newParams.delete("category");
+                  setSearchParams(newParams);
                   setInputValue("");
                   setPriceRange(1000);
                 }}
@@ -253,7 +261,7 @@ function Shop() {
                       className="fixed inset-0 z-10"
                       onClick={() => setIsSortOpen(false)}
                     />
-                    <div className="absolute top-full right-0 mt-3 w-48 bg-white border border-black/5 rounded-2xl shadow-xl z-20 overflow-hidden py-2">
+                    <div className="absolute top-full right-0 rtl:right-auto rtl:left-0 mt-3 w-48 bg-white border border-black/5 rounded-2xl shadow-xl z-20 overflow-hidden py-2">
                       {sortOptions.map((opt) => (
                         <button
                           key={opt.value}
@@ -261,7 +269,7 @@ function Shop() {
                             setSortBy(opt.value);
                             setIsSortOpen(false);
                           }}
-                          className={`w-full text-left px-6 py-3 text-[10px] uppercase font-bold tracking-widest transition-colors ${sortBy === opt.value ? "bg-gold/5 text-gold" : "text-dark/40 hover:bg-black/5 hover:text-dark"}`}
+                          className={`w-full text-start px-6 py-3 text-[10px] uppercase font-bold tracking-widest transition-colors ${sortBy === opt.value ? "bg-gold/5 text-gold" : "text-dark/40 hover:bg-black/5 hover:text-dark"}`}
                         >
                           {t(opt.labelKey)}
                         </button>
@@ -272,21 +280,17 @@ function Shop() {
               </div>
             </div>
 
-            {loading ? (
+            {loading && !data ? (
+              <SkeletonGrid type="product" count={6} gridClass="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 lg:gap-8" />
+            ) : error && !data ? (
               <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
-                <p className="font-serif italic text-xl text-dark/20">
-                  Loading Shop...
-                </p>
-              </div>
-            ) : error ? (
-              <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
-                <p className="font-serif italic text-xl text-red-500">
+                <p className="font-serif text-xl text-red-500">
                   Error loading products.
                 </p>
               </div>
             ) : filteredProducts.length === 0 ? (
               <div className="py-20 text-center bg-white border border-black/5 rounded-[40px]">
-                <p className="font-serif italic text-xl text-dark/20">
+                <p className="font-serif text-xl text-dark/20">
                   {t("shop.no_results")}
                 </p>
               </div>

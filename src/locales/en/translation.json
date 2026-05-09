@@ -40,7 +40,11 @@
     "see_more": "See more products",
     "add_to_cart": "Add to Cart",
     "sale": "Sale",
-    "organic": "Organic"
+    "organic": "Organic",
+    "loading": "Loading products...",
+    "error": "Error loading products.",
+    "no_products": "No products found in this category.",
+    "currency": "MAD"
   },
   "product_detail": {
     "back": "Back to boutique",
@@ -216,7 +220,10 @@
     "no_reviews": "No reviews yet. Be the first to share your experience!",
     "pending_approval": "Your review has been added successfully!",
     "average_rating": "Average Rating",
-    "based_on": "Based on {{count}} reviews"
+    "based_on": "Based on {{count}} reviews",
+    "satisfaction_quote": "Our customers' satisfaction is our greatest reward",
+    "submitting": "Sending...",
+    "thank_you": "Thank you for your review!"
   },
   "legal": {
     "privacy": {

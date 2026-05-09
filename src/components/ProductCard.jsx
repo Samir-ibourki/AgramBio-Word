@@ -23,15 +23,16 @@ function ProductCard({ product }) {
   };
 
   return (
-    <div className="group bg-[#FCFAFA] rounded-2xl md:rounded-3xl overflow-hidden border border-black/5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-500 flex flex-col h-full">
+    <div className="group bg-white rounded-2xl md:rounded-3xl overflow-hidden border border-black/[0.03] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 ease-out flex flex-col h-full">
       <Link to={`/product/${product.id}`} className="block flex-1 group/link">
         <div className="relative aspect-square overflow-hidden bg-white">
           <img 
             src={product.images && product.images[0] ? product.images[0] : "/placeholder.png"} 
             alt={getName()}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover/link:scale-110"
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover/link:opacity-100 transition-opacity duration-300 ease-out pointer-events-none"></div>
           {product.originalPrice && (
             <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-red-500 text-white text-[8px] md:text-[10px] font-bold px-2 md:px-3 py-1 rounded-full uppercase tracking-widest z-10">
               {t('products.sale')}
@@ -48,9 +49,9 @@ function ProductCard({ product }) {
           </h3>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-3">
-            <span className="text-dark font-bold text-sm md:text-lg">{product.price} MAD</span>
+            <span className="text-dark font-bold text-sm md:text-lg">{product.price} {t('products.currency')}</span>
             {product.originalPrice && (
-              <span className="text-dark/30 line-through text-[10px] md:text-sm">{product.originalPrice} MAD</span>
+              <span className="text-dark/30 line-through text-[10px] md:text-sm">{product.originalPrice} {t('products.currency')}</span>
             )}
           </div>
         </div>
@@ -59,8 +60,8 @@ function ProductCard({ product }) {
       <div className="px-3 md:px-6 pb-4 md:pb-6 mt-auto">
         <button 
           onClick={handleAddToCart}
-          className="w-full py-2.5 md:py-3 cursor-pointer bg-dark text-cream text-[11px] md:text-[1rem]  font-bold tracking-widest ease-linear
-        rounded-xl transition-all duration-300 hover:bg-gold hover:text-dark shadow-md active:scale-95"
+          className="w-full py-2.5 md:py-3 cursor-pointer bg-dark text-cream text-xs md:text-sm font-bold tracking-widest 
+        rounded-full transition-all duration-300 ease-linear hover:bg-gold hover:text-dark shadow-md hover:shadow-lg "
         >
           {t('products.add_to_cart')}
         </button>

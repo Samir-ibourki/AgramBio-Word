@@ -28,7 +28,7 @@ function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-16 md:gap-8 mb-10 max-w-5xl mx-auto px-4 md:px-0">
           {/* navigation */}
           <div className="flex flex-col">
-            <h4 className="text-[17px] uppercase font-black text-dark tracking-[0.3em] mb-8 opacity-80 decoration-gold/30 underline underline-offset-8">
+            <h4 className="text-[17px]  font-black text-dark tracking-[0.3em] mb-8 opacity-80 decoration-gold/30 underline underline-offset-8">
               {t("footer.navigation")}
             </h4>
             <ul className="space-y-4">
@@ -36,7 +36,7 @@ function Footer() {
                 <li key={link.nameKey}>
                   <Link
                     to={link.path}
-                    className="text-[16px] text-dark/50 hover:text-gold transition-all duration-300 font-serif "
+                    className="text-[1rem] text-dark/50 hover:text-gold transition-all duration-300 font-serif "
                   >
                     {t(link.nameKey)}
                   </Link>
@@ -47,7 +47,7 @@ function Footer() {
 
           {/* legal */}
           <div className="flex flex-col">
-            <h4 className="text-[17px] uppercase font-black text-dark tracking-[0.3em] mb-8 opacity-80 decoration-gold/30 underline underline-offset-8">
+            <h4 className="text-[17px]  font-black text-dark tracking-[0.3em] mb-8 opacity-80 decoration-gold/30 underline underline-offset-8">
               {t("footer.legal")}
             </h4>
             <ul className="space-y-4">
@@ -66,7 +66,7 @@ function Footer() {
 
           {/* contact */}
           <div className="flex flex-col">
-            <h4 className="text-[17px] uppercase font-black text-dark tracking-[0.3em] mb-8 opacity-80 decoration-gold/30 underline underline-offset-8">
+            <h4 className="text-[17px]  font-black text-dark tracking-[0.3em] mb-8 opacity-80 decoration-gold/30 underline underline-offset-8">
               {t("footer.contact")}
             </h4>
             <ul className="space-y-4">
@@ -102,20 +102,7 @@ function Footer() {
           ))}
         </div>
 
-        {/* credits */}
-        <div className="text-center mb-6">
-          <p className="text-[11px] text-dark/40 font-medium tracking-wide">
-            {t("footer.credit")}{" "}
-            <a
-              href="https://amafsoft.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-dark/60 hover:text-gold transition-colors font-bold uppercase tracking-tighter"
-            >
-              Samir Ibourki
-            </a>
-          </p>
-        </div>
+       
 
         {/* social icons */}
         <div className="flex justify-center gap-10 mb-6">
@@ -135,7 +122,7 @@ function Footer() {
 
         {/* copyright */}
         <div className="text-center pt-4 border-t border-black/5">
-          <p className="text-[10px] uppercase font-bold text-dark/20 tracking-[0.4em]">
+          <p className="text-[10px] uppercase font-bold tracking-[0.4em]">
             &copy; {new Date().getFullYear()} AgramSouss. {t("footer.rights")}.
           </p>
         </div>

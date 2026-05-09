@@ -70,7 +70,7 @@ function CartDrawer({ isOpen, onClose }) {
             {cart.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center opacity-40">
                 <ShoppingBag size={48} className="mb-4" />
-                <p className="font-serif italic">{t("cart.empty")}</p>
+                <p className="font-serif">{t("cart.empty")}</p>
                 <button
                   onClick={onClose}
                   className="mt-6 text-xs uppercase font-bold tracking-widest text-gold hover:underline"
@@ -129,7 +129,7 @@ function CartDrawer({ isOpen, onClose }) {
                         </button>
                       </div>
                       <p className="text-sm font-bold text-gold">
-                        {item.price * item.quantity} MAD
+                        {item.price * item.quantity} {t("products.currency")}
                       </p>
                     </div>
                   </div>
@@ -144,22 +144,22 @@ function CartDrawer({ isOpen, onClose }) {
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span className="text-dark/40">{t("cart.subtotal")}</span>
-                  <span className="text-dark font-bold font-serif">
-                    {subtotal} MAD
+                  <span className="text-dark font-bold font-sans">
+                    {subtotal} {t("products.currency")}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-dark/40">{t("cart.shipping")}</span>
-                  <span className="text-dark font-bold font-serif">
-                    {shippingFee} MAD
+                  <span className="text-dark font-bold font-sans">
+                    {shippingFee} {t("products.currency")}
                   </span>
                 </div>
                 <div className="flex justify-between text-lg pt-4 border-t border-black/5 mt-4">
-                  <span className="font-serif italic font-bold text-dark">
+                  <span className="font-serif font-bold text-dark">
                     {t("cart.total")}
                   </span>
-                  <span className="text-gold font-bold font-serif">
-                    {total} MAD
+                  <span className="text-gold font-bold font-sans">
+                    {total} {t("products.currency")}
                   </span>
                 </div>
               </div>
@@ -167,7 +167,7 @@ function CartDrawer({ isOpen, onClose }) {
               <Link
                 to="/checkout"
                 onClick={onClose}
-                className="block w-full bg-dark text-cream text-center py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-gold hover:text-dark transition-all duration-500 shadow-xl shadow-dark/10"
+                className="block w-full bg-dark text-cream text-center py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-gold hover:text-dark hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out shadow-xl shadow-dark/10"
               >
                 {t("cart.checkout")}
               </Link>

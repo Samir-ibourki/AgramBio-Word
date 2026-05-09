@@ -125,7 +125,7 @@ function Checkout() {
           </p>
           <Link
             to="/shop"
-            className="inline-flex items-center gap-2 bg-dark text-cream px-10 py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-gold hover:text-dark transition-all duration-500"
+            className="inline-flex items-center gap-2 bg-dark text-cream px-10 py-5 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-gold hover:text-dark hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] shadow-lg transition-all duration-300 ease-out"
           >
             {t("checkout.return")}{" "}
             <ArrowRight size={14} className="rtl:rotate-180" />
@@ -136,7 +136,7 @@ function Checkout() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FCFAFA] pt-32 pb-24">
+    <div className="min-h-screen bg-[#FCFAFA] pt-10 pb-20">
       <div className="max-w-7xl lg:max-w-[95vw] mx-auto px-6">
         <Link
           to="/shop"
@@ -157,7 +157,7 @@ function Checkout() {
               <h1 className="text-5xl font-serif text-dark mb-4">
                 {t("checkout.title")}
               </h1>
-              <p className="text-dark/40 text-sm italic font-serif">
+              <p className="text-dark/40 text-sm font-serif">
                 {t("checkout.subtitle")}
               </p>
             </div>
@@ -165,15 +165,15 @@ function Checkout() {
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="text-[10px] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
-                    <User size={12} className="text-gold" />{" "}
+                  <label className="text-[1rem] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
+                    <User size={18} className="text-gold" />{" "}
                     {t("checkout.full_name")}
                   </label>
                   <input
                     required
                     type="text"
                     placeholder={t("checkout.name_placeholder")}
-                    className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-gold/30 transition-all text-sm shadow-sm"
+                    className="w-full bg-cream/10 border border-dark/10 rounded-2xl px-6 py-4 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 hover:border-dark/20 transition-all duration-300 ease-out text-sm shadow-[0_4px_12px_rgba(0,0,0,0.03)] focus:shadow-[0_10px_20px_rgba(0,0,0,0.05)]"
                     value={formData.fullName}
                     onChange={(e) =>
                       setFormData({ ...formData, fullName: e.target.value })
@@ -182,15 +182,15 @@ function Checkout() {
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-[10px] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
-                    <Phone size={12} className="text-gold" />{" "}
+                  <label className="text-[1rem] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
+                    <Phone size={18} className="text-gold" />{" "}
                     {t("checkout.phone")}
                   </label>
                   <input
                     required
                     type="tel"
                     placeholder="06 XX XX XX XX"
-                    className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-gold/30 transition-all text-sm shadow-sm"
+                    className="w-full bg-cream/10 border border-dark/10 rounded-2xl px-6 py-4 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 hover:border-dark/20 transition-all duration-300 ease-out text-sm shadow-[0_4px_12px_rgba(0,0,0,0.03)] focus:shadow-[0_10px_20px_rgba(0,0,0,0.05)]"
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
@@ -201,15 +201,15 @@ function Checkout() {
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="text-[10px] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
-                    <MapPin size={12} className="text-gold" />{" "}
+                  <label className="text-[1rem] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
+                    <MapPin size={18} className="text-gold" />{" "}
                     {t("checkout.city")}
                   </label>
                   <input
                     required
                     type="text"
                     placeholder={t("checkout.city")}
-                    className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-gold/30 transition-all text-sm shadow-sm"
+                    className="w-full bg-cream/10 border border-dark/10 rounded-2xl px-6 py-4 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 hover:border-dark/20 transition-all duration-300 ease-out text-sm shadow-[0_4px_12px_rgba(0,0,0,0.03)] focus:shadow-[0_10px_20px_rgba(0,0,0,0.05)]"
                     value={formData.city}
                     onChange={(e) =>
                       setFormData({ ...formData, city: e.target.value })
@@ -219,15 +219,15 @@ function Checkout() {
               </div>
 
               <div className="space-y-3">
-                <label className="text-[10px] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
-                  <Package size={12} className="text-gold" />{" "}
+                <label className="text-[1rem] uppercase font-bold tracking-widest text-dark/40 ml-1 flex items-center gap-2">
+                  <Package size={18} className="text-gold" />{" "}
                   {t("checkout.full_address")}
                 </label>
                 <textarea
                   required
                   placeholder={t("checkout.address_placeholder")}
                   rows="4"
-                  className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-gold/30 transition-all text-sm shadow-sm resize-none"
+                  className="w-full bg-cream/10 border border-dark/10 rounded-2xl px-6 py-4 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 hover:border-dark/20 transition-all duration-300 ease-out text-sm shadow-[0_4px_12px_rgba(0,0,0,0.03)] focus:shadow-[0_10px_20px_rgba(0,0,0,0.05)] resize-none"
                   value={formData.address}
                   onChange={(e) =>
                     setFormData({ ...formData, address: e.target.value })
@@ -266,7 +266,7 @@ function Checkout() {
               <button
                 type="submit"
                 disabled={isProcessing}
-                className="w-full bg-dark text-cream py-6 rounded-2xl font-bold  tracking-[0.3em] text-[15px] hover:bg-gold hover:text-dark transition-all duration-500 shadow-xl shadow-dark/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-dark text-cream py-4 md:py-5 rounded-full font-bold tracking-widest text-xs md:text-sm hover:bg-gold hover:text-dark hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] shadow-xl shadow-dark/10 transition-all duration-500 ease-out disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isProcessing ? (
                   <span className="flex items-center justify-center gap-3">
@@ -316,15 +316,15 @@ function Checkout() {
                       />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-xs font-bold text-dark">
+                      <h4 className="text-xl font-bold text-dark">
                         {getName(item.name)}
                       </h4>
                       <div className="flex justify-between items-center mt-2">
-                        <span className="text-[10px] text-dark/40 uppercase tracking-widest font-bold">
+                        <span className="text-[1rem] text-dark/40 uppercase tracking-widest font-bold">
                           {t("checkout.qty")}: {item.quantity}
                         </span>
-                        <span className="text-xs font-serif italic font-bold text-gold">
-                          {item.price * item.quantity} MAD
+                        <span className="text-xl font-sans font-bold text-gold">
+                          {item.price * item.quantity} {t("products.currency")}
                         </span>
                       </div>
                     </div>
@@ -335,29 +335,29 @@ function Checkout() {
               <div className="space-y-4 pt-8 border-t border-black/5">
                 <div className="flex justify-between text-sm">
                   <span className="text-dark/40">{t("cart.subtotal")}</span>
-                  <span className="text-dark font-bold font-serif">
-                    {subtotal} MAD
+                  <span className="text-dark font-bold font-sans">
+                    {subtotal} {t("products.currency")}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-dark/40">{t("cart.shipping")}</span>
-                  <span className="text-dark font-bold font-serif">
-                    {shippingFee} MAD
+                  <span className="text-dark font-bold font-sans">
+                    {shippingFee} {t("products.currency")}
                   </span>
                 </div>
                 <div className="flex justify-between text-xl pt-6 border-t border-black/5 mt-6">
-                  <span className="font-serif italic font-bold text-dark">
+                  <span className="font-serif font-bold text-dark">
                     {t("cart.total")}
                   </span>
-                  <span className="text-gold font-bold font-serif">
-                    {total} MAD
+                  <span className="text-gold font-bold font-sans">
+                    {total} {t("products.currency")}
                   </span>
                 </div>
               </div>
 
               <div className="mt-8 flex items-center justify-center gap-3 py-3 border border-black/5 rounded-xl border-dashed">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-[1rem] uppercase font-bold tracking-widest text-dark/40">
+                <span className="text-[1rem]  font-bold tracking-widest text-dark/40">
                   {t("checkout.available")}
                 </span>
               </div>
@@ -379,7 +379,7 @@ function Checkout() {
             </p>
             <button
               onClick={() => setShowErrorModal(false)}
-              className="bg-dark cursor-pointer text-cream font-bold py-3.5 px-8 rounded-xl hover:bg-gold hover:text-dark transition-all duration-300 tracking-widest uppercase text-sm"
+              className="bg-dark cursor-pointer text-cream font-bold py-3.5 px-8 rounded-full hover:bg-gold hover:text-dark hover:shadow-lg shadow-md transition-all duration-300 ease-out tracking-widest uppercase text-sm"
             >
               OK
             </button>
